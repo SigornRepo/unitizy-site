@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Unitizy — Dal caos manuale al processo che si muove da solo</title>
 <meta name="description" content="Unitizy è una tech house di AI consulting e AI development: entriamo nei tuoi processi reali, capiamo dove si perde tempo e costruiamo software AI su misura che va in produzione.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234C6FFF'/%3E%3Cstop offset='1' stop-color='%237C3AED'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='50,0 100,38 82,100 18,100 0,38' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='userSpaceOnUse' x1='0' y1='32' x2='64' y2='32'%3E%3Cstop offset='0' stop-color='%234C6FFF'/%3E%3Cstop offset='1' stop-color='%237C3AED'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M38 8 L58 20 V44 L38 56 L18 44 V36 L24 32 L18 28 V20 Z' fill='url(%23g)'/%3E%3Cpath d='M38 8 V32 M38 32 L18 44 M38 32 L58 44 M38 32 L18 20 M38 32 L58 20' stroke='white' stroke-opacity='.5' stroke-width='2' fill='none'/%3E%3Cpath d='M8 30l3.4-2.4 2.6 2.4-3 2.2z' fill='url(%23g)'/%3E%3C/svg%3E">
 <style>
 /* font self-hostati (subset latin) — niente richieste a Google */
 @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/inter-400.woff2) format('woff2')}
@@ -126,12 +126,21 @@ html.lenis,html.lenis body{height:auto}
 </head>
 <body>
 <div id="u-root" style="color:var(--tx);font-family:var(--bd);overflow-x:clip">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="ulg" gradientUnits="userSpaceOnUse" x1="0" y1="32" x2="64" y2="32"><stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#7C3AED"/></linearGradient>
+  <!-- glifo compatto del brand: cristallo con breccia e frammento (vedi brand.html) -->
+  <g id="u-glyph">
+    <path d="M38 8 L58 20 V44 L38 56 L18 44 V36 L24 32 L18 28 V20 Z" fill="url(#ulg)"/>
+    <path d="M38 8 V32 M38 32 L18 44 M38 32 L58 44 M38 32 L18 20 M38 32 L58 20" stroke="#fff" stroke-opacity=".5" stroke-width="2" fill="none"/>
+    <path d="M8 30l3.4-2.4 2.6 2.4-3 2.2z" fill="url(#ulg)"/>
+  </g>
+</defs></svg>
 <canvas id="u-hero3d" style="position:fixed;inset:0;width:100%;height:100%;z-index:-1"></canvas>
 
 <nav style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(255,255,255,.74);border-bottom:1px solid var(--line)">
   <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:70px;display:flex;align-items:center;justify-content:space-between">
     <a href="#top" style="display:flex;align-items:center;gap:11px;color:var(--tx);font-family:var(--dsp);font-weight:700;font-size:20px;letter-spacing:-.02em">
-      <span style="width:22px;height:22px;background:var(--grad);box-shadow:0 0 20px rgba(110,139,255,.55);clip-path:polygon(50% 0,100% 38%,82% 100%,18% 100%,0 38%)"></span>Unitizy
+      <svg width="26" height="26" viewBox="0 0 64 64" style="filter:drop-shadow(0 0 8px rgba(110,139,255,.45))" aria-hidden="true"><use href="#u-glyph"/></svg>Unitizy
     </a>
     <div class="u-nav-links" style="display:flex;gap:30px;font-size:14px;color:var(--mut)">
       <a href="#servizi" style="color:inherit" class="hv-tx">Servizi</a>
@@ -806,7 +815,7 @@ html.lenis,html.lenis body{height:auto}
     <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px">
       <div>
         <a href="#top" style="display:flex;align-items:center;gap:11px;color:var(--tx);font-family:var(--dsp);font-weight:700;font-size:20px;letter-spacing:-.02em">
-          <span style="width:20px;height:20px;background:var(--grad);box-shadow:0 0 16px rgba(110,139,255,.55);clip-path:polygon(50% 0,100% 38%,82% 100%,18% 100%,0 38%)"></span>Unitizy
+          <svg width="24" height="24" viewBox="0 0 64 64" style="filter:drop-shadow(0 0 7px rgba(110,139,255,.4))" aria-hidden="true"><use href="#u-glyph"/></svg>Unitizy
         </a>
         <p style="margin-top:16px;max-width:26em;font-size:14.5px;line-height:1.6;color:var(--mut)">Tech house e AI consulting. Progettiamo e costruiamo soluzioni che entrano in produzione.</p>
       </div>

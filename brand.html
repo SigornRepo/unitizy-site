@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Unitizy — Modello di identità visiva</title>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/inter-400.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(vendor/fonts/inter-600.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/jetbrains-mono-400.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/space-grotesk-500.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(vendor/fonts/space-grotesk-700.woff2) format('woff2')}
+:root{--bg:#fff;--surface:#F5F7FC;--line:rgba(14,27,77,.12);--tx:#0E1B4D;--mut:#3F4E85;--dim:#7A85B3;--cy:#4C6FFF;--vi:#7C3AED;--grad:linear-gradient(120deg,#4C6FFF,#7C3AED);--dsp:'Space Grotesk',system-ui,sans-serif;--bd:'Inter',system-ui,sans-serif;--mo:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--bd);-webkit-font-smoothing:antialiased;line-height:1.55}
+main{max-width:1080px;margin:0 auto;padding:56px clamp(20px,5vw,60px) 90px}
+h1{font-family:var(--dsp);font-weight:700;font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;line-height:1.05;margin:14px 0 6px}
+h2{font-family:var(--dsp);font-weight:700;font-size:clamp(20px,2.4vw,27px);letter-spacing:-.02em;margin:70px 0 6px}
+.k{font-family:var(--mo);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cy)}
+p.lead{color:var(--mut);max-width:52em;margin:8px 0 0}
+.card{border:1px solid var(--line);background:var(--surface);padding:28px;display:flex;align-items:center;justify-content:center}
+.dark{background:#0E1B4D}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.cap{font-family:var(--mo);font-size:11.5px;color:var(--dim);margin-top:9px;letter-spacing:.04em}
+.sw{height:92px;display:flex;align-items:flex-end;padding:12px;color:#fff;font-family:var(--mo);font-size:12px}
+.rule{display:flex;gap:10px;align-items:flex-start;margin:9px 0;color:var(--mut);font-size:15px}
+.rule b{color:var(--tx)}
+.dot{flex:none;margin-top:7px;width:8px;height:8px;background:var(--grad);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+@media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<span class="k">Unitizy · Identità visiva · v1 — luglio 2026</span>
+<h1>Il cristallo che si ricompone.</h1>
+<p class="lead">Il marchio racconta in un solo segno quello che Unitizy fa: frammenti sparsi — il lavoro manuale, il caos operativo — convergono e diventano una struttura ordinata e trasparente. Il solido non si sta rompendo: <b>si sta completando</b>.</p>
+
+<!-- ══════════ MASTER ══════════ -->
+<h2>1 · Il marchio</h2>
+<p class="lead">Versione principale. Il tratto è volutamente più solido dell'esplorazione generata: deve reggere la stampa e gli schermi piccoli.</p>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="ug" gradientUnits="userSpaceOnUse" x1="0" y1="32" x2="64" y2="32">
+      <stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <!-- GLIFO MASTER: icosaedro outline con breccia a sinistra + frammenti in arrivo -->
+    <g id="u-mark">
+      <g fill="url(#ug)">
+        <path d="M3 31l2.6-2 2.4 2.2-2.7 1.9z"/>
+        <path d="M7.5 23l3-1.4 1 2.8-2.6 1.5z"/>
+        <path d="M8 40.5l2.8-1 1.4 2.6-2.9 1.2z"/>
+        <path d="M12 30l3.6-2.4 2.7 1.7-.5 3-3.3 1z"/>
+        <path d="M15.5 18.5l3-1 1.2 2.9-2.7 1.3z"/>
+        <path d="M15.8 43.5l3.2-.7 1 2.8-3.1 1z"/>
+        <path d="M17.5 30.6l4-2.7 2.2 2.3-1.3 3.2-3.6.4z"/>
+        <path d="M21.6 25.9l2.7-1.6 1.5 2.4-2.5 1.6z"/>
+        <path d="M21.8 36.2l2.9-.4 1 2.5-2.8.9z"/>
+      </g>
+      <g fill="none" stroke="url(#ug)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M38 10 L56 21 L56 43 L38 54 L20 43 L20 37 M20 27 L20 21 L38 10"/>
+        <path d="M25 25 L51 25 L38 47 Z"/>
+        <path d="M38 10 L25 25 M38 10 L51 25 M20 21 L25 25 M56 21 L51 25 M20 43 L25 25 M20 43 L38 47 M38 54 L38 47 M56 43 L38 47 M56 43 L51 25"/>
+      </g>
+    </g>
+    <!-- GLIFO COMPATTO (favicon / dimensioni piccole): pieno, con tacca -->
+    <g id="u-glyph">
+      <path d="M38 8 L58 20 V44 L38 56 L18 44 V36 L24 32 L18 28 V20 Z" fill="url(#ug)"/>
+      <path d="M38 8 V32 M38 32 L18 44 M38 32 L58 44 M38 32 L18 20 M38 32 L58 20" stroke="#fff" stroke-opacity=".5" stroke-width="2" fill="none"/>
+      <path d="M8 30l3.4-2.4 2.6 2.4-3 2.2z" fill="url(#ug)"/>
+    </g>
+  </defs>
+</svg>
+<div class="grid2">
+  <div>
+    <div class="card" style="padding:44px"><svg width="230" height="230" viewBox="0 0 64 64" role="img" aria-label="Marchio Unitizy"><use href="#u-mark"/></svg></div>
+    <div class="cap">// master su fondo chiaro — uso preferenziale</div>
+  </div>
+  <div>
+    <div class="card dark" style="padding:44px"><svg width="230" height="230" viewBox="0 0 64 64"><use href="#u-mark"/></svg></div>
+    <div class="cap">// su fondo notte #0E1B4D il gradiente resta identico</div>
+  </div>
+</div>
+
+<!-- ══════════ LOCKUP ══════════ -->
+<h2>2 · Lockup con wordmark</h2>
+<p class="lead">Il nome è sempre in Space Grotesk Bold, tracking -2%. Il marchio è alto quanto la x-height estesa del wordmark; lo spazio tra i due è pari alla larghezza di un frammento grande.</p>
+<div class="grid2">
+  <div>
+    <div class="card" style="gap:18px;padding:38px">
+      <svg width="72" height="72" viewBox="0 0 64 64"><use href="#u-mark"/></svg>
+      <span style="font-family:var(--dsp);font-weight:700;font-size:44px;letter-spacing:-.02em">Unitizy</span>
+    </div>
+    <div class="cap">// lockup orizzontale — header, documenti, firme</div>
+  </div>
+  <div>
+    <div class="card dark" style="gap:18px;padding:38px">
+      <svg width="72" height="72" viewBox="0 0 64 64"><use href="#u-mark"/></svg>
+      <span style="font-family:var(--dsp);font-weight:700;font-size:44px;letter-spacing:-.02em;color:#fff">Unitizy</span>
+    </div>
+    <div class="cap">// su scuro il wordmark passa al bianco</div>
+  </div>
+</div>
+
+<!-- ══════════ SCALA ══════════ -->
+<h2>3 · Il glifo compatto e la scala</h2>
+<p class="lead">Sotto i 32px il master perde le linee interne: si usa il glifo compatto — pieno, con la tacca a sinistra e un solo frammento. Stessa storia, meno parole.</p>
+<div class="card" style="gap:44px;padding:40px;flex-wrap:wrap">
+  <span style="display:flex;flex-direction:column;align-items:center;gap:10px"><svg width="128" height="128" viewBox="0 0 64 64"><use href="#u-mark"/></svg><span class="cap">master 128px</span></span>
+  <span style="display:flex;flex-direction:column;align-items:center;gap:10px"><svg width="64" height="64" viewBox="0 0 64 64"><use href="#u-mark"/></svg><span class="cap">master 64px</span></span>
+  <span style="display:flex;flex-direction:column;align-items:center;gap:10px"><svg width="32" height="32" viewBox="0 0 64 64"><use href="#u-glyph"/></svg><span class="cap">glifo 32px</span></span>
+  <span style="display:flex;flex-direction:column;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 64 64"><use href="#u-glyph"/></svg><span class="cap">favicon 16px</span></span>
+</div>
+
+<!-- ══════════ COLORI ══════════ -->
+<h2>4 · Colori</h2>
+<div class="grid3">
+  <div><div class="sw" style="background:#4C6FFF">#4C6FFF · Processo</div><div class="cap">// blu elettrico — inizio del gradiente</div></div>
+  <div><div class="sw" style="background:#7C3AED">#7C3AED · Intelligenza</div><div class="cap">// viola — fine del gradiente</div></div>
+  <div><div class="sw" style="background:#0E1B4D">#0E1B4D · Notte</div><div class="cap">// testi e fondi scuri</div></div>
+</div>
+<p class="lead" style="margin-top:14px">Il gradiente corre <b>sempre da sinistra (blu) a destra (viola)</b>: è la direzione della trasformazione, dal caos al processo. Versione monocromatica ammessa solo in Notte #0E1B4D o bianco puro.</p>
+
+<!-- ══════════ MOTIF ══════════ -->
+<h2>5 · Il motivo dei frammenti</h2>
+<p class="lead">I frammenti non vivono solo nel logo: sono il pattern decorativo del brand — separatori, sfondi di slide, momenti di transizione. Sempre in movimento verso destra, sempre più ordinati man mano che avanzano.</p>
+<div class="card" style="padding:34px">
+  <svg width="100%" height="40" viewBox="0 0 600 40" preserveAspectRatio="xMidYMid meet">
+    <defs><linearGradient id="mg" gradientUnits="userSpaceOnUse" x1="0" y1="20" x2="600" y2="20"><stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs>
+    <g fill="url(#mg)">
+      <path d="M10 22l4-3 3 3-3.6 2.6z" opacity=".5"/><path d="M60 14l5-2 2 4-4 2.4z" opacity=".55"/><path d="M95 27l4-3.4 3.6 2.6-3 3.4z" opacity=".6"/><path d="M150 18l6-3 3 4-4 3.4z" opacity=".68"/><path d="M210 24l6-4 4 3-3 4.4z" opacity=".76"/><path d="M280 16l7-2 2 5-5 3z" opacity=".84"/><path d="M350 22l7-4 4 4-4 4z" opacity=".9"/>
+      <rect x="430" y="13" width="13" height="13" transform="rotate(45 436 19)"/><rect x="500" y="14" width="13" height="13" transform="rotate(45 506 20)"/><rect x="565" y="15" width="12" height="12" transform="rotate(45 571 21)"/>
+    </g>
+  </svg>
+</div>
+<div class="cap">// separatore "dal caos all'ordine" — i frammenti si regolarizzano in rombi</div>
+
+<!-- ══════════ REGOLE ══════════ -->
+<h2>6 · Regole d'uso</h2>
+<div class="rule"><span class="dot"></span><span><b>Area di rispetto:</b> attorno al marchio, spazio libero pari all'altezza dell'esagono ÷ 2. Niente testi o elementi dentro quest'area.</span></div>
+<div class="rule"><span class="dot"></span><span><b>Dimensioni minime:</b> master mai sotto i 32px; sotto quella soglia si passa al glifo compatto.</span></div>
+<div class="rule"><span class="dot"></span><span><b>La breccia sta a sinistra.</b> Mai specchiare né ruotare il marchio: la direzione caos→ordine è il significato stesso del segno.</span></div>
+<div class="rule"><span class="dot"></span><span><b>Niente ombre, contorni aggiunti o effetti 3D.</b> Il marchio è piatto; la profondità la fa la geometria.</span></div>
+<div class="rule"><span class="dot"></span><span><b>I frammenti non si spostano</b> rispetto al solido nel logo statico; nelle animazioni possono convergere verso la breccia (mai allontanarsi).</span></div>
+</main>
+</body>
+</html>
