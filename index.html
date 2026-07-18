@@ -6,9 +6,18 @@
 <title>Unitizy — Dal caos manuale al processo che si muove da solo</title>
 <meta name="description" content="Unitizy è una tech house di AI consulting e AI development: entriamo nei tuoi processi reali, capiamo dove si perde tempo e costruiamo software AI su misura che va in produzione.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234C6FFF'/%3E%3Cstop offset='1' stop-color='%237C3AED'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='50,0 100,38 82,100 18,100 0,38' fill='url(%23g)'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* font self-hostati (subset latin) — niente richieste a Google */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/inter-400.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/inter-500.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(vendor/fonts/inter-600.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/jetbrains-mono-400.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/jetbrains-mono-500.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/space-grotesk-400.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/space-grotesk-500.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url(vendor/fonts/space-grotesk-600.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(vendor/fonts/space-grotesk-700.woff2) format('woff2')}
+</style>
 <script src="vendor/three-0.152.2.min.js"></script>
 <script src="vendor/lenis-1.1.14.min.js"></script>
 <style>
@@ -35,7 +44,7 @@ html.lenis,html.lenis body{height:auto}
 .u-hl{display:block;position:relative;padding-bottom:.06em}
 .u-hl>span{display:inline-block;opacity:0}
 .u-fade{opacity:0;animation:u-fade .7s var(--ease) forwards}
-.u-fd1{animation-delay:.7s}.u-fd2{animation-delay:.86s}.u-fd3{animation-delay:1.0s}
+.u-fd1{animation-delay:1.2s}.u-fd2{animation-delay:1.4s}.u-fd3{animation-delay:1.6s}
 @keyframes u-fade{to{opacity:1}}
 .u-caret{display:inline-block;width:8px;height:1.05em;background:var(--cy);margin-left:4px;vertical-align:-2px;animation:u-blink 1.05s steps(1) infinite;box-shadow:0 0 10px var(--cy)}
 @keyframes u-blink{50%{opacity:0}}
@@ -952,8 +961,10 @@ class UnitizySite {
   }
   initPenWrite() {
     const heroLines = [...document.querySelectorAll('header .u-hl > span')];
-    let delay = 250;
-    heroLines.forEach(s => { const dur = this.sprayLine(s, delay); delay += dur + 90; });
+    if (!this.initCrystalText(heroLines)) {
+      let delay = 250;
+      heroLines.forEach(s => { const dur = this.sprayLine(s, delay); delay += dur + 90; });
+    }
     const heads = [...document.querySelectorAll('#u-root h2')];
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { this.sprayLine(e.target.__inner, 0); io.unobserve(e.target); } }), { threshold: 0.55 });
     heads.forEach(h => {
@@ -962,6 +973,93 @@ class UnitizySite {
       if (this.RM) { inner.style.clipPath = 'none'; } else { inner.style.opacity = '0'; io.observe(h); }
     });
     this.cleanups.push(() => io.disconnect());
+  }
+  initCrystalText(lines) {
+    // Hero: le parole si formano dalle particelle esplose dal cluster di cristalli.
+    // Il testo DOM resta la verità (SEO/a11y): le particelle sono scenografia, poi crossfade.
+    if (this.RM || matchMedia('(max-width:820px)').matches || !lines.length || scrollY > innerHeight * 0.4) return false;
+    const reveal = () => lines.forEach(s => { s.style.transition = 'opacity .55s ease'; s.style.opacity = '1'; });
+    const start = () => { try {
+      if (document.hidden) { // tab in background: rimanda l'esplosione a quando l'utente guarda
+        const onVis = () => { if (!document.hidden) { document.removeEventListener('visibilitychange', onVis); setTimeout(start, 120); } };
+        document.addEventListener('visibilitychange', onVis);
+        this.cleanups.push(() => document.removeEventListener('visibilitychange', onVis));
+        return;
+      }
+      const vw = innerWidth, vh = innerHeight;
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      const off = document.createElement('canvas'); off.width = vw; off.height = vh;
+      const octx = off.getContext('2d', { willReadFrequently: true });
+      const lerpHex = (a, b, t) => {
+        const pa = [1, 3, 5].map(i => parseInt(a.slice(i, i + 2), 16));
+        const pb = [1, 3, 5].map(i => parseInt(b.slice(i, i + 2), 16));
+        return 'rgb(' + pa.map((v, i) => Math.round(v + (pb[i] - v) * t)).join(',') + ')';
+      };
+      const spans = [];
+      lines.forEach(s => {
+        const r = s.getBoundingClientRect();
+        if (!r.width || r.bottom < 0 || r.top > vh) return;
+        const cs = getComputedStyle(s);
+        const fs = parseFloat(cs.fontSize);
+        octx.font = cs.fontWeight + ' ' + fs + 'px ' + cs.fontFamily;
+        octx.textBaseline = 'alphabetic';
+        octx.fillStyle = '#000';
+        octx.fillText(s.textContent, r.left, r.top + (r.height - fs) / 2 + fs * 0.78);
+        spans.push({ el: s, r, grad: ((cs.webkitBackgroundClip || '') + (cs.backgroundClip || '')).includes('text') });
+      });
+      if (!spans.length) { reveal(); return; }
+      const img = octx.getImageData(0, 0, vw, vh).data;
+      const pts = [], STEP = 5;
+      spans.forEach(sp => {
+        const x0 = Math.max(0, sp.r.left | 0), x1 = Math.min(vw, (sp.r.right + 2) | 0);
+        const y0 = Math.max(0, sp.r.top | 0), y1 = Math.min(vh, (sp.r.bottom + 2) | 0);
+        for (let y = y0; y < y1; y += STEP) for (let x = x0; x < x1; x += STEP) {
+          if (img[(y * vw + x) * 4 + 3] > 100) pts.push({ tx: x, ty: y, c: sp.grad ? lerpHex('#4C6FFF', '#7C3AED', (x - sp.r.left) / (sp.r.width || 1)) : '#0E1B4D' });
+        }
+      });
+      if (!pts.length) { reveal(); return; }
+      while (pts.length > 2400) pts.splice((Math.random() * pts.length) | 0, 1);
+      // origine dell'esplosione: dove sta il cluster 3D (destra-centro dell'hero)
+      const ox = vw * 0.56, oy = vh * 0.4;
+      const P = pts.map(p => {
+        const a = Math.random() * Math.PI * 2, d = 90 + Math.random() * 300;
+        return { tx: p.tx, ty: p.ty, c: p.c, bx: ox + Math.cos(a) * d, by: oy + Math.sin(a) * d * 0.7, delay: (p.tx / vw) * 0.5 + Math.random() * 0.1, curl: (Math.random() - 0.5) * 60, s: 1.6 + Math.random() * 1.6 };
+      });
+      const cv = document.createElement('canvas');
+      cv.width = vw * dpr; cv.height = vh * dpr;
+      cv.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:40;pointer-events:none';
+      document.body.appendChild(cv);
+      const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
+      const T = 2400, t0 = performance.now(), EX = 0.16;
+      let revealed = false;
+      const eo = t => 1 - Math.pow(1 - t, 3), eio = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      const tick = now => {
+        const t = Math.min((now - t0) / T, 1);
+        ctx.clearRect(0, 0, vw, vh);
+        for (const p of P) {
+          let x, y, al;
+          if (t < EX) { const k = eo(t / EX); x = ox + (p.bx - ox) * k; y = oy + (p.by - oy) * k; al = k; }
+          else {
+            const k = Math.min(Math.max((t - EX - p.delay * (1 - EX)) / 0.42, 0), 1);
+            const e = eio(k);
+            x = p.bx + (p.tx - p.bx) * e + Math.sin(e * Math.PI) * p.curl;
+            y = p.by + (p.ty - p.by) * e + Math.sin(e * Math.PI * 2) * p.curl * 0.3;
+            al = 1;
+          }
+          ctx.globalAlpha = al; ctx.fillStyle = p.c; ctx.fillRect(x, y, p.s, p.s);
+        }
+        if (t > 0.78 && !revealed) {
+          revealed = true; reveal();
+          cv.style.transition = 'opacity .6s ease'; cv.style.opacity = '0';
+        }
+        if (t < 1) { const id = requestAnimationFrame(tick); this.rafs.push(id); }
+        else cv.remove();
+      };
+      const id = requestAnimationFrame(tick); this.rafs.push(id);
+      this.cleanups.push(() => cv.remove());
+    } catch (e) { console.warn('crystalText', e); reveal(); } };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => setTimeout(start, 150)); else setTimeout(start, 350);
+    return true;
   }
   setHeroInfo() { const hi = this.q('u-hero-info'); if (hi) hi.style.display = this.props.heroInfo === false ? 'none' : ''; }
   initHeroParallax() {
