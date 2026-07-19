@@ -123,6 +123,10 @@ html.lenis,html.lenis body{height:auto}
 @keyframes u-lgthru{0%{opacity:0;transform:translateX(-8px)}40%{opacity:.95}100%{opacity:0;transform:translateX(13px)}}
 @keyframes u-lgthru2{0%{opacity:0;transform:translateX(-8px)}40%{opacity:.95}100%{opacity:0;transform:translateX(13px)}}
 
+/* — atmosfere di sezione: velature brand + costellazioni di frammenti — */
+.u-atmo{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.u-atmo i{position:absolute;display:block;background:var(--cy);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+
 @media (prefers-reduced-motion: reduce){
   .u-hl>span,.u-fade{transform:none;animation:none;opacity:1}
   .u-tk,.u-caret,.u-float,#u-tflow{animation:none}
@@ -302,7 +306,13 @@ html.lenis,html.lenis body{height:auto}
   <div id="u-svc-outer" style="position:relative">
     <div id="u-svc-stage" style="position:relative;display:flex;flex-direction:column;justify-content:center">
   <section id="servizi" class="u-scan" style="position:relative;padding:clamp(48px,8vh,96px) 0 clamp(40px,6vh,70px)">
-    <div class="u-fx" style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+    <div class="u-atmo" aria-hidden="true" style="background:radial-gradient(ellipse 55% 60% at 88% 15%,rgba(76,111,255,.06),transparent 70%),radial-gradient(ellipse 45% 55% at 6% 85%,rgba(124,58,237,.05),transparent 72%)">
+      <i style="left:5%;top:16%;width:9px;height:9px;opacity:.13;transform:rotate(18deg)"></i>
+      <i style="left:92%;top:24%;width:12px;height:12px;opacity:.12;background:var(--vi);transform:rotate(-12deg)"></i>
+      <i style="left:88%;top:72%;width:8px;height:8px;opacity:.14"></i>
+      <i style="left:9%;top:80%;width:11px;height:11px;opacity:.11;background:var(--vi);transform:rotate(30deg)"></i>
+    </div>
+    <div class="u-fx" style="position:relative;max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
       <div style="max-width:40em;margin-bottom:52px">
         <span style="display:inline-block;font-family:var(--mo);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cy);margin-bottom:16px">02 — Servizi</span>
         <h2 style="font-family:var(--dsp);font-weight:700;font-size:clamp(30px,4vw,52px);line-height:1.04;letter-spacing:-.03em;margin:0">Quattro modi in cui entriamo nel tuo lavoro.</h2>
@@ -609,6 +619,12 @@ html.lenis,html.lenis body{height:auto}
 
 <!-- METODO -->
 <section id="metodo" class="u-book" style="position:relative;padding:clamp(80px,13vh,150px) 0;border-top:1px solid var(--line)">
+  <div class="u-atmo" aria-hidden="true" style="background:radial-gradient(ellipse 50% 55% at 10% 12%,rgba(76,111,255,.055),transparent 70%),radial-gradient(ellipse 55% 60% at 92% 82%,rgba(124,58,237,.055),transparent 72%)">
+    <i style="left:4%;top:12%;width:10px;height:10px;opacity:.12;transform:rotate(-20deg)"></i>
+    <i style="left:94%;top:20%;width:9px;height:9px;opacity:.13;background:var(--vi)"></i>
+    <i style="left:90%;top:76%;width:12px;height:12px;opacity:.11;background:var(--vi);transform:rotate(14deg)"></i>
+    <i style="left:6%;top:84%;width:8px;height:8px;opacity:.14"></i>
+  </div>
   <div class="u-fx" style="position:relative">
     <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);width:100%">
       <span style="display:inline-block;font-family:var(--mo);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cy);margin-bottom:14px">03 — Metodo</span>
@@ -702,7 +718,13 @@ html.lenis,html.lenis body{height:auto}
 
 <!-- VERTICALI -->
 <section id="verticali" class="u-scan" style="background:var(--bg);padding:clamp(72px,11vh,130px) 0;border-top:1px solid var(--line);overflow:hidden;position:relative">
-  <div class="u-fx" style="max-width:1240px;margin:0 auto 44px;padding:0 clamp(20px,5vw,64px);display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+  <div class="u-atmo" aria-hidden="true" style="background:radial-gradient(ellipse 60% 65% at 50% 0%,rgba(76,111,255,.05),transparent 70%),radial-gradient(ellipse 45% 55% at 92% 90%,rgba(124,58,237,.05),transparent 72%)">
+    <i style="left:7%;top:20%;width:9px;height:9px;opacity:.12;transform:rotate(24deg)"></i>
+    <i style="left:93%;top:14%;width:11px;height:11px;opacity:.12;background:var(--vi);transform:rotate(-8deg)"></i>
+    <i style="left:90%;top:64%;width:8px;height:8px;opacity:.14"></i>
+    <i style="left:5%;top:74%;width:10px;height:10px;opacity:.11;background:var(--vi)"></i>
+  </div>
+  <div class="u-fx" style="position:relative;max-width:1240px;margin:0 auto 44px;padding:0 clamp(20px,5vw,64px);display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
     <div>
       <span style="display:inline-block;font-family:var(--mo);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cy);margin-bottom:16px">05 — Verticali</span>
       <h2 style="font-family:var(--dsp);font-weight:700;font-size:clamp(28px,3.8vw,48px);line-height:1.04;letter-spacing:-.03em;margin:0;max-width:32em">Settori in cui parliamo già la lingua giusta.</h2>
@@ -820,6 +842,7 @@ html.lenis,html.lenis body{height:auto}
 <section id="contatti" style="background:var(--bg);position:relative;border-top:1px solid var(--line);overflow:hidden">
   <canvas id="u-cta3d" style="position:absolute;inset:0;width:100%;height:100%;z-index:0"></canvas>
   <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(100% 120% at 12% 50%,var(--bg) 18%,rgba(255,255,255,.6) 58%,transparent 100%)"></div>
+  <svg id="u-cta-glyph" width="270" height="270" viewBox="0 0 64 64" aria-hidden="true" style="position:absolute;right:clamp(24px,9vw,140px);top:50%;transform:translateY(-50%);z-index:1;opacity:0;pointer-events:none;filter:drop-shadow(0 0 34px rgba(110,139,255,.35));max-width:26vw"><use href="#u-glyph"/></svg>
   <div class="u-fx" style="position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:clamp(90px,15vh,180px) clamp(20px,5vw,64px);pointer-events:none">
     <h2 style="font-family:var(--dsp);font-weight:700;font-size:clamp(40px,6.4vw,92px);line-height:1;letter-spacing:-.035em;margin:0;max-width:14em">Partiamo da un<br>processo solo.</h2>
     <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.55;max-width:34em;margin:26px 0 0;color:var(--mut)">Trenta minuti per capire dove stai perdendo tempo e se l'AI è davvero la risposta. Se non lo è, te lo diciamo.</p>
@@ -897,6 +920,7 @@ class UnitizySite {
     this.initCinema();
     this.initServicesScroll();
     this.initThread();
+    this.initCtaFinale();
     this.initScan();
     this.initCarousel();
     this.initFilmBar();
@@ -1801,6 +1825,67 @@ class UnitizySite {
       if (spine) spine.style.opacity = (Math.sin(this.clamp(e, 0, 1) * Math.PI) * 0.9).toFixed(3);
     }
   }
+  initCtaFinale() {
+    // Finale: i frammenti convergono nel glifo quando arrivi alla CTA — specchio dell'hero
+    const sec = this.q('contatti'), glyph = this.q('u-cta-glyph');
+    if (!sec || !glyph) return;
+    if (this.RM || matchMedia('(max-width:820px)').matches) { glyph.style.opacity = '1'; return; }
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      try { this.runCtaFinale(sec, glyph); } catch (err) { console.warn('ctaFinale', err); glyph.style.opacity = '1'; }
+    }), { threshold: 0.45 });
+    io.observe(sec);
+    this.cleanups.push(() => io.disconnect());
+  }
+  runCtaFinale(sec, glyph) {
+    const sr = sec.getBoundingClientRect(), gr = glyph.getBoundingClientRect();
+    const W = Math.round(sr.width), H = Math.round(sr.height);
+    const gx = gr.left - sr.left, gy = gr.top - sr.top, gw = gr.width;
+    const off = document.createElement('canvas'); off.width = W; off.height = H;
+    const oc = off.getContext('2d', { willReadFrequently: true });
+    oc.setTransform(gw / 64, 0, 0, gw / 64, gx, gy);
+    oc.fillStyle = '#000';
+    oc.fill(new Path2D('M38 8 L58 20 V44 L38 56 L18 44 V36 L24 32 L18 28 V20 Z'));
+    oc.fill(new Path2D('M8 30l3.4-2.4 2.6 2.4-3 2.2z'));
+    const img = oc.getImageData(0, 0, W, H).data;
+    const pts = [];
+    const x0 = Math.max(0, gx - 4 | 0), x1 = Math.min(W, (gx + gw + 4) | 0), y0 = Math.max(0, gy - 4 | 0), y1 = Math.min(H, (gy + gr.height + 4) | 0);
+    for (let y = y0; y < y1; y += 3) for (let x = x0; x < x1; x += 3) if (img[(y * W + x) * 4 + 3] > 100) pts.push({ tx: x, ty: y });
+    if (!pts.length) { glyph.style.opacity = '1'; return; }
+    while (pts.length > 1300) pts.splice((Math.random() * pts.length) | 0, 1);
+    const lr = (a, b, t) => Math.round(a + (b - a) * t);
+    const P = pts.map(p => {
+      const a = Math.random() * Math.PI * 2, d = 140 + Math.random() * Math.max(W, H) * 0.5;
+      const k = (p.tx - gx) / gw;
+      return { tx: p.tx, ty: p.ty, sx: p.tx + Math.cos(a) * d, sy: p.ty + Math.sin(a) * d, delay: k * 0.4 + Math.random() * 0.15, c: 'rgb(' + lr(76, 124, k) + ',' + lr(111, 58, k) + ',' + lr(255, 237, k) + ')', s: 1.4 + Math.random() * 1.5 };
+    });
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const cv = document.createElement('canvas');
+    cv.width = W * dpr; cv.height = H * dpr;
+    cv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none';
+    sec.appendChild(cv);
+    const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
+    const T = 1900, t0 = performance.now();
+    let revealed = false;
+    const eio = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const tick = now => {
+      const t = Math.min((now - t0) / T, 1);
+      ctx.clearRect(0, 0, W, H);
+      for (const p of P) {
+        const k = Math.min(Math.max((t - p.delay) / 0.45, 0), 1);
+        if (k <= 0) continue;
+        const e = eio(k);
+        ctx.globalAlpha = 0.25 + 0.75 * e;
+        ctx.fillStyle = p.c;
+        ctx.fillRect(p.sx + (p.tx - p.sx) * e, p.sy + (p.ty - p.sy) * e, p.s, p.s);
+      }
+      if (t > 0.82 && !revealed) { revealed = true; glyph.style.transition = 'opacity .5s ease'; glyph.style.opacity = '1'; cv.style.transition = 'opacity .55s ease'; cv.style.opacity = '0'; }
+      if (t < 1) { const id = requestAnimationFrame(tick); this.rafs.push(id); } else cv.remove();
+    };
+    const id = requestAnimationFrame(tick); this.rafs.push(id);
+    this.cleanups.push(() => cv.remove());
+  }
   initThread() {
     if (this.RM) return;
     if (matchMedia('(max-width: 820px)').matches) return;
@@ -1821,15 +1906,23 @@ class UnitizySite {
       + '<path id="u-thread-path" fill="none" stroke="url(#u-thread-g)" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke" style="filter:drop-shadow(0 0 4px var(--cy))"/>'
       + '<g id="u-thread-nodes"></g>'
       + '<circle id="u-thread-trail" r="9" fill="var(--cy)" opacity="0.28" style="filter:blur(4px)"/>'
-      + '<circle id="u-thread-packet" r="3.6" fill="#16205C" style="filter:drop-shadow(0 0 7px var(--cy)) drop-shadow(0 0 14px var(--vi))"/>';
+      + '<path id="u-thread-packet" d="M0 -4.4 L4.4 0 L0 4.4 L-4.4 0 Z" fill="#16205C" style="filter:drop-shadow(0 0 7px var(--cy)) drop-shadow(0 0 14px var(--vi))"/>';
     root.appendChild(svg);
     const nodesG = svg.querySelector('#u-thread-nodes');
-    this._thNodes = [0.13, 0.34, 0.55, 0.74, 0.9].map(p => {
-      const c = document.createElementNS(NS, 'circle');
-      c.setAttribute('r', '3.2'); c.setAttribute('fill', 'var(--bg)');
-      c.setAttribute('stroke', 'var(--cy)'); c.setAttribute('stroke-width', '1.5');
-      c.setAttribute('vector-effect', 'non-scaling-stroke');
-      nodesG.appendChild(c); return { p, el: c };
+    // frammenti sul filo: irregolari in alto (caos), rombi perfetti in basso (ordine)
+    this._thNodes = [
+      { p: 0.13, d: 'M-5 -2 L-1.4 -6 L5 -2.6 L3.6 3.4 L-2.4 5 Z' },
+      { p: 0.34, d: 'M-5 -3 L2 -5.4 L5 .6 L1.4 5 L-4 3 Z' },
+      { p: 0.55, d: 'M0 -6 L5 -1.4 L1 6 L-5 1 Z' },
+      { p: 0.74, d: 'M0 -6 L5.4 0 L0 6 L-4.6 0 Z' },
+      { p: 0.9,  d: 'M0 -6.4 L5.6 0 L0 6.4 L-5.6 0 Z' }
+    ].map(n => {
+      const el = document.createElementNS(NS, 'path');
+      el.setAttribute('d', n.d);
+      el.setAttribute('fill', 'var(--bg)');
+      el.setAttribute('stroke', 'var(--cy)'); el.setAttribute('stroke-width', '1.5');
+      el.setAttribute('stroke-linejoin', 'round');
+      nodesG.appendChild(el); return { p: n.p, el, a: 0 };
     });
     this._thread = { svg, path: svg.querySelector('#u-thread-path'), glow: svg.querySelector('#u-thread-glow'), packet: svg.querySelector('#u-thread-packet'), trail: svg.querySelector('#u-thread-trail') };
     this._thSeeds = [1.3, 4.7, 8.2];
@@ -1872,13 +1965,16 @@ class UnitizySite {
     const speed = 0.055 + this.clamp(Math.abs(this._vel) * 0.004, 0, 0.55);
     this._packetT = (this._packetT + dt * speed) % 1;
     let len = 0; try { len = t.path.getTotalLength(); } catch (e) {}
-    if (len) { const pt = t.path.getPointAtLength(this._packetT * len); t.packet.setAttribute('cx', pt.x.toFixed(1)); t.packet.setAttribute('cy', pt.y.toFixed(1)); t.trail.setAttribute('cx', pt.x.toFixed(1)); t.trail.setAttribute('cy', pt.y.toFixed(1)); }
-    // nodes sit on the wire, light up once passed
+    if (len) { const pt = t.path.getPointAtLength(this._packetT * len); t.packet.setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ' ' + pt.y.toFixed(1) + ')'); t.trail.setAttribute('cx', pt.x.toFixed(1)); t.trail.setAttribute('cy', pt.y.toFixed(1)); }
+    // frammenti sul filo: i non-superati ruotano inquieti (più in alto = più caos);
+    // quando li superi si allineano e si accendono — il caos diventa ordine man mano che scendi
     this._thNodes.forEach(n => {
-      n.el.setAttribute('cx', this.threadX(n.p, chaos, lean).toFixed(1));
-      n.el.setAttribute('cy', (n.p * H).toFixed(1));
+      const x = this.threadX(n.p, chaos, lean), y = n.p * H;
       const lit = gp >= n.p - 0.015;
-      n.el.setAttribute('fill', lit ? 'var(--cy)' : 'var(--bg)');
+      if (!lit) { n.a += dt * 40 * Math.pow(1 - n.p, 2); }
+      else { n.a = n.a % 360; if (n.a > 180) n.a -= 360; if (n.a < -180) n.a += 360; n.a *= 0.85; }
+      n.el.setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + n.a.toFixed(1) + ')');
+      n.el.setAttribute('fill', lit ? 'url(#u-thread-g)' : 'var(--bg)');
       n.el.style.filter = lit ? 'drop-shadow(0 0 6px var(--cy))' : 'none';
     });
     // inertia — headings skew & stretch with scroll velocity, decays to rest
