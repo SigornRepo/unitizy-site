@@ -44,6 +44,15 @@ for needle in REQUIRED_IN_INDEX:
     if needle not in index:
         errors.append(f"index.html: manca '{needle}'")
 
+# CSS: ogni url(...) relativo deve risolvere a un file esistente (relativo al file css)
+for css in sorted((ROOT / "assets" / "css").glob("*.css")):
+    for m in re.finditer(r"url\(\s*['\"]?([^'\")]+)['\"]?\s*\)", css.read_text(encoding="utf-8", errors="replace")):
+        ref = m.group(1)
+        if ref.startswith(("data:", "http", "#", "//")):
+            continue
+        if not (css.parent / ref.split("#")[0].split("?")[0]).resolve().exists():
+            errors.append(f"{css.name}: url() non risolto — {ref}")
+
 # moduli ES: ogni import relativo deve risolvere a un file esistente
 for js in sorted((ROOT / "assets" / "js").glob("*.js")):
     for m in re.finditer(r"from\s+'(\./[^']+)'", js.read_text(encoding="utf-8", errors="replace")):

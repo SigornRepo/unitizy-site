@@ -1,18 +1,18 @@
 /* unitizy.com — stili del sito. Estratto dal monolite il 19/07/2026. */
 
 /* font self-hostati (subset latin) — niente richieste a Google */
-@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/inter-400.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/inter-500.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(vendor/fonts/inter-600.woff2) format('woff2')}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/jetbrains-mono-400.woff2) format('woff2')}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/jetbrains-mono-500.woff2) format('woff2')}
-@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/space-grotesk-400.woff2) format('woff2')}
-@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/space-grotesk-500.woff2) format('woff2')}
-@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url(vendor/fonts/space-grotesk-600.woff2) format('woff2')}
-@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(vendor/fonts/space-grotesk-700.woff2) format('woff2')}
-@font-face{font-family:'Clash Display';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/clash-display-500.woff2) format('woff2')}
-@font-face{font-family:'Clash Display';font-style:normal;font-weight:600;font-display:swap;src:url(vendor/fonts/clash-display-600.woff2) format('woff2')}
-@font-face{font-family:'Clash Display';font-style:normal;font-weight:700;font-display:swap;src:url(vendor/fonts/clash-display-700.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(../../vendor/fonts/inter-400.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(../../vendor/fonts/inter-500.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(../../vendor/fonts/inter-600.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../../vendor/fonts/jetbrains-mono-400.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../../vendor/fonts/jetbrains-mono-500.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url(../../vendor/fonts/space-grotesk-400.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url(../../vendor/fonts/space-grotesk-500.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url(../../vendor/fonts/space-grotesk-600.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(../../vendor/fonts/space-grotesk-700.woff2) format('woff2')}
+@font-face{font-family:'Clash Display';font-style:normal;font-weight:500;font-display:swap;src:url(../../vendor/fonts/clash-display-500.woff2) format('woff2')}
+@font-face{font-family:'Clash Display';font-style:normal;font-weight:600;font-display:swap;src:url(../../vendor/fonts/clash-display-600.woff2) format('woff2')}
+@font-face{font-family:'Clash Display';font-style:normal;font-weight:700;font-display:swap;src:url(../../vendor/fonts/clash-display-700.woff2) format('woff2')}
 
 :root{
   --bg:#FFFFFF; --surface:#F5F7FC; --surface2:#EBEFF9;
