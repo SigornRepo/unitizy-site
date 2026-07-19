@@ -17,6 +17,9 @@
 @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/space-grotesk-500.woff2) format('woff2')}
 @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url(vendor/fonts/space-grotesk-600.woff2) format('woff2')}
 @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(vendor/fonts/space-grotesk-700.woff2) format('woff2')}
+@font-face{font-family:'Clash Display';font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/clash-display-500.woff2) format('woff2')}
+@font-face{font-family:'Clash Display';font-style:normal;font-weight:600;font-display:swap;src:url(vendor/fonts/clash-display-600.woff2) format('woff2')}
+@font-face{font-family:'Clash Display';font-style:normal;font-weight:700;font-display:swap;src:url(vendor/fonts/clash-display-700.woff2) format('woff2')}
 </style>
 <script src="vendor/three-0.152.2.min.js"></script>
 <script src="vendor/lenis-1.1.14.min.js"></script>
@@ -27,7 +30,7 @@
   --tx:#0E1B4D; --mut:#3F4E85; --dim:#7A85B3;
   --cy:#4C6FFF; --vi:#7C3AED;
   --grad:linear-gradient(120deg,#4C6FFF 0%,#7C3AED 100%);
-  --dsp:'Space Grotesk',system-ui,sans-serif; --bd:'Inter',system-ui,sans-serif; --mo:'JetBrains Mono',ui-monospace,monospace;
+  --dsp:'Clash Display','Space Grotesk',system-ui,sans-serif; --bd:'Inter',system-ui,sans-serif; --mo:'JetBrains Mono',ui-monospace,monospace;
   --ease:cubic-bezier(.22,1,.36,1);
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -101,6 +104,16 @@ html.lenis,html.lenis body{height:auto}
 @keyframes d-scan{from{transform:translateX(0)}to{transform:translateX(296px)}}
 @keyframes d-pulse{0%,100%{opacity:.35}50%{opacity:1}}
 
+/* — logo navbar: i frammenti convergono nella breccia (regola 5 del manuale) — */
+.lg-a1{opacity:0;animation:u-lgin .8s .5s var(--ease) both}
+.lg-a2{opacity:0;animation:u-lgthru 1.5s 1.1s cubic-bezier(.45,0,.55,1) both}
+.lg-a3{opacity:0;animation:u-lgthru 1.5s 1.6s cubic-bezier(.45,0,.55,1) both}
+.u-logo-link:hover .lg-a2{animation:u-lgthru2 1.2s cubic-bezier(.45,0,.55,1) both}
+.u-logo-link:hover .lg-a3{animation:u-lgthru2 1.2s .3s cubic-bezier(.45,0,.55,1) both}
+@keyframes u-lgin{from{opacity:0;transform:translateX(-9px)}to{opacity:1;transform:none}}
+@keyframes u-lgthru{0%{opacity:0;transform:translateX(-8px)}40%{opacity:.95}100%{opacity:0;transform:translateX(13px)}}
+@keyframes u-lgthru2{0%{opacity:0;transform:translateX(-8px)}40%{opacity:.95}100%{opacity:0;transform:translateX(13px)}}
+
 @media (prefers-reduced-motion: reduce){
   .u-hl>span,.u-fade{transform:none;animation:none;opacity:1}
   .u-tk,.u-caret,.u-float,#u-tflow{animation:none}
@@ -108,6 +121,8 @@ html.lenis,html.lenis body{height:auto}
   .mstep.is-active h3,.mstep.is-active .mstep-deliv p,.mstep.is-active .mstep-deliv div span{animation:none!important}
   .sdg svg *{animation:none!important}
   .sdg .d-pop,.sdg .d-trav,.sdg .d-scan{opacity:1}
+  .lg-a1{animation:none!important;opacity:1}
+  .lg-a2,.lg-a3{animation:none!important;opacity:0!important}
 }
 .u-burger{display:none}
 @media (max-width:900px){ .u-nav-links{display:none!important} .u-spine{display:none!important} #u-filmbar{display:none!important} .u-burger{display:flex!important} }
@@ -139,8 +154,14 @@ html.lenis,html.lenis body{height:auto}
 
 <nav style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(255,255,255,.74);border-bottom:1px solid var(--line)">
   <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:70px;display:flex;align-items:center;justify-content:space-between">
-    <a href="#top" style="display:flex;align-items:center;gap:11px;color:var(--tx);font-family:var(--dsp);font-weight:700;font-size:20px;letter-spacing:-.02em">
-      <svg width="26" height="26" viewBox="0 0 64 64" style="filter:drop-shadow(0 0 8px rgba(110,139,255,.45))" aria-hidden="true"><use href="#u-glyph"/></svg>Unitizy
+    <a href="#top" class="u-logo-link" style="display:flex;align-items:center;gap:11px;color:var(--tx);font-family:var(--dsp);font-weight:700;font-size:20px;letter-spacing:-.02em">
+      <svg width="26" height="26" viewBox="0 0 64 64" style="filter:drop-shadow(0 0 8px rgba(110,139,255,.45));overflow:visible" aria-hidden="true">
+        <path d="M38 8 L58 20 V44 L38 56 L18 44 V36 L24 32 L18 28 V20 Z" fill="url(#ulg)"/>
+        <path d="M38 8 V32 M38 32 L18 44 M38 32 L58 44 M38 32 L18 20 M38 32 L58 20" stroke="#fff" stroke-opacity=".5" stroke-width="2" fill="none"/>
+        <path class="lg-a1" d="M8 30l3.4-2.4 2.6 2.4-3 2.2z" fill="url(#ulg)"/>
+        <path class="lg-a2" d="M2 25l2.8-1.8 2 2-2.4 1.8z" fill="url(#ulg)"/>
+        <path class="lg-a3" d="M1 37l2.6-1 1.8 2.2-2.4 1.2z" fill="url(#ulg)"/>
+      </svg>Unitizy
     </a>
     <div class="u-nav-links" style="display:flex;gap:30px;font-size:14px;color:var(--mut)">
       <a href="#servizi" style="color:inherit" class="hv-tx">Servizi</a>
@@ -178,41 +199,40 @@ html.lenis,html.lenis body{height:auto}
 <!-- HERO -->
 <header id="top" style="position:relative;overflow:hidden">
   <div id="u-hero-pin" style="position:relative;min-height:94vh;overflow:hidden;display:flex;align-items:center;padding:110px 0 90px">
-  <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,var(--bg) 0%,rgba(255,255,255,.74) 44%,rgba(255,255,255,0) 78%)"></div>
+  <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 62% at 50% 46%,rgba(255,255,255,.85) 0%,rgba(255,255,255,.55) 52%,rgba(255,255,255,0) 82%)"></div>
   <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,var(--bg) 1%,transparent 24%)"></div>
   <div id="u-hero-content" style="position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);width:100%;pointer-events:none">
-    <div class="u-hero" style="display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center">
-      <div class="u-hpar" data-depth="-14" style="pointer-events:auto;will-change:transform">
+    <div class="u-hero" style="display:flex;justify-content:center;text-align:center">
+      <div class="u-hpar" data-depth="-14" style="pointer-events:auto;will-change:transform;max-width:52em">
         <div class="u-fade u-fd1" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--mo);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line);background:rgba(255,255,255,.55);padding:7px 13px;border-radius:999px;margin-bottom:26px">
           <span style="width:6px;height:6px;border-radius:50%;background:var(--cy);box-shadow:0 0 10px var(--cy)"></span>AI Consulting · AI Development · Tech house
         </div>
-        <h1 style="font-family:var(--dsp);font-weight:700;font-size:clamp(42px,7.4vw,108px);line-height:.98;letter-spacing:-.035em;margin:0;text-wrap:balance">
+        <h1 style="font-family:var(--dsp);font-weight:700;font-size:clamp(42px,7.4vw,108px);line-height:1;letter-spacing:-.012em;word-spacing:.09em;margin:0;text-wrap:balance">
           <span class="u-hl"><span>Dal caos</span></span>
           <span class="u-hl"><span>manuale al processo</span></span>
           <span class="u-hl"><span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">che si muove da solo.</span></span>
         </h1>
-        <p class="u-fade u-fd2" style="font-size:clamp(16px,1.4vw,19px);line-height:1.6;max-width:33em;margin:28px 0 0;color:var(--mut)">Entriamo dentro i tuoi processi reali, capiamo dove si perde tempo e costruiamo software AI su misura che va in produzione.</p>
+        <p class="u-fade u-fd2" style="font-size:clamp(16px,1.4vw,19px);line-height:1.6;max-width:33em;margin:28px auto 0;color:var(--mut)">Entriamo dentro i tuoi processi reali, capiamo dove si perde tempo e costruiamo software AI su misura che va in produzione.</p>
         <div class="u-fade u-fd2" style="font-family:var(--mo);font-size:13px;color:var(--dim);margin-top:20px">&gt; da <span style="color:var(--vi)">12 processi manuali</span> → <span style="color:var(--cy)">1 flusso autonomo</span><span class="u-caret"></span></div>
-        <div class="u-fade u-fd3" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:34px">
+        <div class="u-fade u-fd3" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:34px">
           <a href="#contatti" style="font-family:var(--dsp);font-weight:600;font-size:15px;color:#fff;background:var(--grad);padding:14px 24px;transition:box-shadow .2s,transform .2s" class="hv-lift2">Prenota una call →</a>
           <a href="#servizi" style="font-family:var(--dsp);font-weight:600;font-size:15px;color:var(--tx);border:1px solid var(--line2);background:rgba(255,255,255,.5);padding:14px 24px;transition:border-color .2s,background .2s" class="hv-ghost">Scopri i servizi</a>
         </div>
       </div>
-      <div></div>
     </div>
   </div>
   <div id="u-hero-hint" style="position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;font-family:var(--mo);font-size:11px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase">scorri ↓</div>
   <div id="u-hero-info" style="position:absolute;inset:0;z-index:2;pointer-events:none;will-change:opacity">
-    <div class="u-flp" data-depth="46" style="position:absolute;right:5%;top:15%;will-change:transform">
+    <div class="u-flp" data-depth="46" style="position:absolute;left:5%;top:17%;will-change:transform">
       <div class="u-float" style="display:flex;align-items:center;gap:9px;padding:9px 14px;background:rgba(255,255,255,.65);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border:1px solid var(--line2);border-radius:999px;font-family:var(--mo);font-size:12px;color:var(--tx);white-space:nowrap;box-shadow:0 10px 34px rgba(14,27,77,.12);animation-duration:6s"><span style="width:7px;height:7px;border-radius:50%;background:var(--cy);box-shadow:0 0 10px var(--cy)"></span>Su misura, non template</div>
     </div>
-    <div class="u-flp" data-depth="28" style="position:absolute;right:13%;top:39%;will-change:transform">
+    <div class="u-flp" data-depth="28" style="position:absolute;right:4%;top:19%;will-change:transform">
       <div class="u-float" style="display:flex;align-items:center;gap:9px;padding:9px 14px;background:rgba(255,255,255,.65);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border:1px solid var(--line2);border-radius:999px;font-family:var(--mo);font-size:12px;color:var(--tx);white-space:nowrap;box-shadow:0 10px 34px rgba(14,27,77,.12);animation-duration:7.5s;animation-delay:-2s"><span style="width:7px;height:7px;border-radius:50%;background:var(--vi);box-shadow:0 0 10px var(--vi)"></span>in produzione, non slide</div>
     </div>
-    <div class="u-flp" data-depth="58" style="position:absolute;right:2%;top:63%;will-change:transform">
+    <div class="u-flp" data-depth="58" style="position:absolute;left:6%;bottom:19%;will-change:transform">
       <div class="u-float" style="display:flex;align-items:center;gap:9px;padding:9px 14px;background:rgba(255,255,255,.65);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border:1px solid var(--line2);border-radius:999px;font-family:var(--mo);font-size:12px;color:var(--tx);white-space:nowrap;box-shadow:0 10px 34px rgba(14,27,77,.12);animation-duration:6.8s;animation-delay:-4s"><span style="width:7px;height:7px;border-radius:50%;background:var(--cy);box-shadow:0 0 10px var(--cy)"></span>RAG · Agenti · Automazione</div>
     </div>
-    <div class="u-flp" data-depth="22" style="position:absolute;right:17%;bottom:14%;will-change:transform">
+    <div class="u-flp" data-depth="22" style="position:absolute;right:5%;bottom:16%;will-change:transform">
       <div class="u-float" style="display:flex;align-items:center;gap:9px;padding:9px 14px;background:rgba(255,255,255,.65);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border:1px solid var(--line2);border-radius:999px;font-family:var(--mo);font-size:12px;color:var(--tx);white-space:nowrap;box-shadow:0 10px 34px rgba(14,27,77,.12);animation-duration:8s;animation-delay:-1s"><span style="width:7px;height:7px;border-radius:50%;background:var(--vi);box-shadow:0 0 10px var(--vi)"></span>24/7 · processi che non dormono</div>
     </div>
   </div>
@@ -1028,8 +1048,8 @@ class UnitizySite {
       });
       if (!pts.length) { reveal(); return; }
       while (pts.length > 2400) pts.splice((Math.random() * pts.length) | 0, 1);
-      // origine dell'esplosione: dove sta il cluster 3D (destra-centro dell'hero)
-      const ox = vw * 0.56, oy = vh * 0.4;
+      // origine dell'esplosione: il cluster 3D, ora dietro il testo centrato
+      const ox = vw * 0.5, oy = vh * 0.42;
       const P = pts.map(p => {
         const a = Math.random() * Math.PI * 2, d = 90 + Math.random() * 300;
         return { tx: p.tx, ty: p.ty, c: p.c, bx: ox + Math.cos(a) * d, by: oy + Math.sin(a) * d * 0.7, delay: (p.tx / vw) * 0.5 + Math.random() * 0.1, curl: (Math.random() - 0.5) * 60, s: 1.6 + Math.random() * 1.6 };
