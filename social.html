@@ -10,7 +10,7 @@
 @font-face{font-family:'Clash Display';font-style:normal;font-weight:700;font-display:swap;src:url(vendor/fonts/clash-display-700.woff2) format('woff2')}
 @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/inter-400.woff2) format('woff2')}
 @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/jetbrains-mono-400.woff2) format('woff2')}
-:root{--tx:#0E1B4D;--mut:#3F4E85;--dim:#7A85B3;--cy:#4C6FFF;--vi:#7C3AED;--grad:linear-gradient(120deg,#4C6FFF,#7C3AED);--dsp:'Clash Display',system-ui,sans-serif;--bd:'Inter',system-ui,sans-serif;--mo:'JetBrains Mono',ui-monospace,monospace}
+:root{--tx:#0E1B4D;--mut:#3F4E85;--dim:#5C689C;--cy:#4C6FFF;--vi:#7C3AED;--grad:linear-gradient(120deg,#4C6FFF,#7C3AED);--dsp:'Clash Display',system-ui,sans-serif;--bd:'Inter',system-ui,sans-serif;--mo:'JetBrains Mono',ui-monospace,monospace}
 *{box-sizing:border-box}
 body{margin:0;background:#E9EDF7;font-family:var(--bd);color:var(--tx)}
 /* — galleria di anteprima (vista di default) — */
@@ -37,14 +37,6 @@ body{margin:0;background:#E9EDF7;font-family:var(--bd);color:var(--tx)}
 </head>
 <body>
 
-<!-- ═══ definizioni condivise: gradiente + glifo ═══ -->
-<svg width="0" height="0" style="position:absolute"><defs>
-<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="32" x2="64" y2="32"><stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#7C3AED"/></linearGradient>
-<g id="glyph"><path d="M38 8 L58 20 V44 L38 56 L18 44 V36 L24 32 L18 28 V20 Z" fill="url(#g)"/><path d="M38 8 V32 M38 32 L18 44 M38 32 L58 44 M38 32 L18 20 M38 32 L58 20" stroke="#fff" stroke-opacity=".5" stroke-width="2" fill="none"/><path d="M8 30l3.4-2.4 2.6 2.4-3 2.2z" fill="url(#g)"/></g>
-<!-- flusso di frammenti: irregolari → rombi (regola: sempre verso destra, mai al contrario) -->
-<g id="flow"><g fill="url(#fg)"><path d="M10 22l4-3 3 3-3.6 2.6z" opacity=".5"/><path d="M60 14l5-2 2 4-4 2.4z" opacity=".55"/><path d="M95 27l4-3.4 3.6 2.6-3 3.4z" opacity=".6"/><path d="M150 18l6-3 3 4-4 3.4z" opacity=".68"/><path d="M210 24l6-4 4 3-3 4.4z" opacity=".76"/><path d="M280 16l7-2 2 5-5 3z" opacity=".84"/><path d="M350 22l7-4 4 4-4 4z" opacity=".9"/><rect x="430" y="13" width="13" height="13" transform="rotate(45 436 19)"/><rect x="500" y="14" width="13" height="13" transform="rotate(45 506 20)"/><rect x="565" y="15" width="12" height="12" transform="rotate(45 571 21)"/></g></g>
-<linearGradient id="fg" gradientUnits="userSpaceOnUse" x1="0" y1="20" x2="600" y2="20"><stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#7C3AED"/></linearGradient>
-</defs></svg>
 
 <div class="wrap" id="gallery-intro">
 <h1>Template social Unitizy</h1>
@@ -54,21 +46,21 @@ body{margin:0;background:#E9EDF7;font-family:var(--bd);color:var(--tx)}
 <!-- ═══ 1 · POST QUADRATO — STATEMENT (chiaro) 1080×1080 ═══ -->
 <div class="prev wrap" data-w="1080"><div class="cap">// 1 · post quadrato — statement · 1080×1080 · LinkedIn / Instagram</div>
 <div class="board b-sq" id="board-1">
-  <svg style="position:absolute;left:-40px;top:150px" width="700" height="46" viewBox="0 0 600 40"><use href="#flow"/></svg>
-  <div class="brand" style="left:84px;top:72px;font-size:40px"><svg width="52" height="52" viewBox="0 0 64 64"><use href="#glyph"/></svg>Unitizy</div>
+  <svg style="position:absolute;left:-40px;top:150px" width="700" height="46" viewBox="0 0 600 40"><use href="assets/brand/marks.svg#flow"/></svg>
+  <div class="brand" style="left:84px;top:72px;font-size:40px"><svg width="52" height="52" viewBox="0 0 64 64"><use href="assets/brand/marks.svg#glyph"/></svg>Unitizy</div>
   <span class="k" style="position:absolute;left:88px;top:340px;font-size:22px">Dal caos manuale al processo</span>
   <div class="claim" style="position:absolute;left:84px;top:395px;width:900px;font-size:104px">Le ore ripetitive, <span class="grad-tx">tolte dal tavolo.</span></div>
   <div style="position:absolute;left:88px;top:730px;width:760px;font-size:31px;line-height:1.5;color:var(--mut)">Automatizziamo i processi che il tuo team fa a mano — documenti, dati, back-office — con software AI su misura che va in produzione.</div>
   <span class="site" style="left:88px;bottom:64px;font-size:24px">unitizy.com</span>
-  <svg style="position:absolute;right:60px;bottom:52px" width="220" height="46" viewBox="380 0 220 40"><use href="#flow"/></svg>
+  <svg style="position:absolute;right:60px;bottom:52px" width="220" height="46" viewBox="380 0 220 40"><use href="assets/brand/marks.svg#flow"/></svg>
   <div class="baseline"></div>
 </div></div>
 
 <!-- ═══ 2 · POST QUADRATO — METRICA (scuro) 1080×1080 ═══ -->
 <div class="prev wrap" data-w="1080"><div class="cap">// 2 · post quadrato — metrica · 1080×1080 · versione notte</div>
 <div class="board b-sq dark" id="board-2">
-  <svg style="position:absolute;left:-40px;top:170px;opacity:.9" width="700" height="46" viewBox="0 0 600 40"><use href="#flow"/></svg>
-  <div class="brand" style="left:84px;top:72px;font-size:40px;color:#fff"><svg width="52" height="52" viewBox="0 0 64 64"><use href="#glyph"/></svg>Unitizy</div>
+  <svg style="position:absolute;left:-40px;top:170px;opacity:.9" width="700" height="46" viewBox="0 0 600 40"><use href="assets/brand/marks.svg#flow"/></svg>
+  <div class="brand" style="left:84px;top:72px;font-size:40px;color:#fff"><svg width="52" height="52" viewBox="0 0 64 64"><use href="assets/brand/marks.svg#glyph"/></svg>Unitizy</div>
   <span class="k" style="position:absolute;left:88px;top:360px;font-size:22px">Risultati in produzione</span>
   <div class="claim grad-tx" style="position:absolute;left:80px;top:410px;font-size:230px;letter-spacing:-.03em">12.400</div>
   <div class="claim" style="position:absolute;left:88px;top:690px;width:850px;font-size:64px;color:#F4F6FF">ore restituite ai clienti, ogni anno.</div>
@@ -80,8 +72,8 @@ body{margin:0;background:#E9EDF7;font-family:var(--bd);color:var(--tx)}
 <!-- ═══ 3 · STORY — 1080×1920 ═══ -->
 <div class="prev wrap" data-w="1080"><div class="cap">// 3 · story verticale · 1080×1920 · Instagram / WhatsApp</div>
 <div class="board b-st" id="board-3">
-  <svg style="position:absolute;left:50%;top:-30px;transform:translateX(-50%) rotate(90deg) scale(1.4);transform-origin:center" width="600" height="40" viewBox="0 0 600 40"><use href="#flow"/></svg>
-  <div class="brand" style="left:50%;top:150px;transform:translateX(-50%);font-size:44px"><svg width="56" height="56" viewBox="0 0 64 64"><use href="#glyph"/></svg>Unitizy</div>
+  <svg style="position:absolute;left:50%;top:24px;transform:translateX(-50%)" width="40" height="112" viewBox="0 0 40 112" aria-hidden="true"><defs><linearGradient id="sv" gradientUnits="userSpaceOnUse" x1="20" y1="0" x2="20" y2="112"><stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs><g fill="url(#sv)"><path d="M16 6l5-3 4 4-5 3.4z" opacity=".55"/><path d="M22 30l4-2.6 3 3-3.4 3z" opacity=".7"/><path d="M14 52l5-3.4 4 3.4-4 4z" opacity=".85"/><rect x="14" y="72" width="11" height="11" transform="rotate(45 19.5 77.5)" opacity=".95"/><rect x="15" y="94" width="10" height="10" transform="rotate(45 20 99)"/></g></svg>
+  <div class="brand" style="left:50%;top:150px;transform:translateX(-50%);font-size:44px"><svg width="56" height="56" viewBox="0 0 64 64"><use href="assets/brand/marks.svg#glyph"/></svg>Unitizy</div>
   <span class="k" style="position:absolute;left:50%;top:660px;transform:translateX(-50%);font-size:24px;white-space:nowrap">AI Consulting · AI Development</span>
   <div class="claim" style="position:absolute;left:70px;right:70px;top:730px;text-align:center;font-size:110px">Dal caos manuale al processo <span class="grad-tx">che si muove da solo.</span></div>
   <div style="position:absolute;left:130px;right:130px;top:1310px;text-align:center;font-size:34px;line-height:1.5;color:var(--mut)">Trenta minuti per capire dove stai perdendo tempo. Se l'AI non serve, te lo diciamo.</div>
@@ -93,14 +85,11 @@ body{margin:0;background:#E9EDF7;font-family:var(--bd);color:var(--tx)}
 <!-- ═══ 4 · BANNER LINK — 1200×627 ═══ -->
 <div class="prev wrap" data-w="1200"><div class="cap">// 4 · banner link · 1200×627 · anteprima condivisioni LinkedIn / X</div>
 <div class="board b-ln" id="board-4">
-  <div class="brand" style="left:64px;top:52px;font-size:34px"><svg width="44" height="44" viewBox="0 0 64 64"><use href="#glyph"/></svg>Unitizy</div>
+  <div class="brand" style="left:64px;top:52px;font-size:34px"><svg width="44" height="44" viewBox="0 0 64 64"><use href="assets/brand/marks.svg#glyph"/></svg>Unitizy</div>
   <span class="k" style="position:absolute;left:66px;top:180px;font-size:18px">Tech house · AI consulting</span>
   <div class="claim" style="position:absolute;left:64px;top:225px;width:640px;font-size:64px">Il tuo processo diventa <span class="grad-tx">un sistema.</span></div>
   <div style="position:absolute;left:66px;top:440px;width:560px;font-size:24px;line-height:1.5;color:var(--mut)">Software AI su misura che entra in produzione, non in slide.</div>
-  <svg style="position:absolute;right:-70px;top:50%;transform:translateY(-50%)" width="480" height="480" viewBox="0 0 64 64">
-    <g fill="url(#g)"><path d="M8 30l2.4-1.7 1.8 1.7-2 1.5z" opacity=".55"/><path d="M12 22l2.4-1.2 1.2 2-1.9 1.3z" opacity=".6"/><path d="M12.5 38.5l2.3-.8 1 2-2.1 1z" opacity=".65"/><path d="M15.5 30l2.8-1.9 2 1.6-1.4 2.4z" opacity=".8"/></g>
-    <g fill="none" stroke="url(#g)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M38 10 L56 21 L56 43 L38 54 L20 43 L20 37 M20 27 L20 21 L38 10"/><path d="M25 25 L51 25 L38 47 Z"/><path d="M38 10 L25 25 M38 10 L51 25 M20 21 L25 25 M56 21 L51 25 M20 43 L25 25 M20 43 L38 47 M38 54 L38 47 M56 43 L38 47 M56 43 L51 25"/></g>
-  </svg>
+  <svg style="position:absolute;right:-70px;top:50%;transform:translateY(-50%)" width="480" height="480" viewBox="0 0 64 64"><use href="assets/brand/marks.svg#mark"/></svg>
   <span class="site" style="left:66px;bottom:44px;font-size:20px">unitizy.com</span>
   <div class="baseline"></div>
 </div></div>

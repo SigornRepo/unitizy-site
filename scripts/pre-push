@@ -1,0 +1,3 @@
+#!/bin/sh
+# hook pre-push: installalo con  cp scripts/pre-push .git/hooks/pre-push
+python "$(git rev-parse --show-toplevel)/scripts/check.py" || exit 1

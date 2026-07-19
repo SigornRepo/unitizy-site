@@ -13,6 +13,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Unitizy sh.p.k.","url":"https://unitizy.com","email":"info@unitizy.com","vatID":"M61903504J","description":"Tech house di AI consulting e AI development: software AI su misura che entra in produzione.","logo":"https://unitizy.com/assets/brand/marks.svg"}</script>
 <meta name="twitter:image" content="https://unitizy.com/assets/social/unitizy-social-banner-link.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='userSpaceOnUse' x1='0' y1='32' x2='64' y2='32'%3E%3Cstop offset='0' stop-color='%234C6FFF'/%3E%3Cstop offset='1' stop-color='%237C3AED'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M38 8 L58 20 V44 L38 56 L18 44 V36 L24 32 L18 28 V20 Z' fill='url(%23g)'/%3E%3Cpath d='M38 8 V32 M38 32 L18 44 M38 32 L58 44 M38 32 L18 20 M38 32 L58 20' stroke='white' stroke-opacity='.5' stroke-width='2' fill='none'/%3E%3Cpath d='M8 30l3.4-2.4 2.6 2.4-3 2.2z' fill='url(%23g)'/%3E%3C/svg%3E">
 <style>
@@ -30,13 +31,15 @@
 @font-face{font-family:'Clash Display';font-style:normal;font-weight:600;font-display:swap;src:url(vendor/fonts/clash-display-600.woff2) format('woff2')}
 @font-face{font-family:'Clash Display';font-style:normal;font-weight:700;font-display:swap;src:url(vendor/fonts/clash-display-700.woff2) format('woff2')}
 </style>
-<script src="vendor/three-0.152.2.min.js"></script>
-<script src="vendor/lenis-1.1.14.min.js"></script>
+<link rel="preload" href="vendor/fonts/clash-display-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<script src="vendor/three-0.152.2.min.js" defer></script>
+<script src="vendor/lenis-1.1.14.min.js" defer></script>
 <style>
 :root{
   --bg:#FFFFFF; --surface:#F5F7FC; --surface2:#EBEFF9;
   --line:rgba(14,27,77,.12); --line2:rgba(14,27,77,.24);
-  --tx:#0E1B4D; --mut:#3F4E85; --dim:#7A85B3;
+  --tx:#0E1B4D; --mut:#3F4E85; --dim:#5C689C;
   --cy:#4C6FFF; --vi:#7C3AED;
   --grad:linear-gradient(120deg,#4C6FFF 0%,#7C3AED 100%);
   --dsp:'Clash Display','Space Grotesk',system-ui,sans-serif; --bd:'Inter',system-ui,sans-serif; --mo:'JetBrains Mono',ui-monospace,monospace;
@@ -56,7 +59,7 @@ html.lenis,html.lenis body{height:auto}
 .u-hl{display:block;position:relative;padding-bottom:.06em}
 .u-hl>span{display:inline-block;opacity:0}
 .u-fade{opacity:0;animation:u-fade .7s var(--ease) forwards}
-.u-fd1{animation-delay:1.2s}.u-fd2{animation-delay:1.4s}.u-fd3{animation-delay:1.6s}
+.u-fd1{animation-delay:1.0s}.u-fd2{animation-delay:1.15s}.u-fd3{animation-delay:1.3s}
 @keyframes u-fade{to{opacity:1}}
 .u-caret{display:inline-block;width:8px;height:1.05em;background:var(--cy);margin-left:4px;vertical-align:-2px;animation:u-blink 1.05s steps(1) infinite;box-shadow:0 0 10px var(--cy)}
 @keyframes u-blink{50%{opacity:0}}
@@ -139,11 +142,12 @@ html.lenis,html.lenis body{height:auto}
 }
 .u-burger{display:none}
 @media (max-width:900px){ .u-nav-links{display:none!important} .u-spine{display:none!important} #u-filmbar{display:none!important} .u-burger{display:flex!important} }
-@media (max-width:820px){ .u-hero{grid-template-columns:1fr!important} .u-cards{grid-template-columns:1fr 1fr!important} .u-prima-grid{grid-template-columns:1fr!important} .u-impact{grid-template-columns:1fr!important} #u-hero-info{display:none!important} .u-proofgrid{grid-template-columns:1fr!important} .u-logos{grid-template-columns:repeat(3,1fr)!important} .u-steps{grid-template-columns:repeat(2,1fr)!important} }
-@media (max-width:560px){ .u-logos{grid-template-columns:repeat(2,1fr)!important} .u-steps{grid-template-columns:1fr!important} }
+@media (max-width:820px){ .u-cards{grid-template-columns:1fr 1fr!important} .u-prima-grid{grid-template-columns:1fr!important} .u-impact{grid-template-columns:1fr!important} #u-hero-info{display:none!important} .u-proofgrid{grid-template-columns:1fr!important} .u-steps{grid-template-columns:repeat(2,1fr)!important} }
+@media (max-width:560px){ .u-steps{grid-template-columns:1fr!important} }
 @media (max-width:560px){ .u-cards{grid-template-columns:1fr!important} }
 @media (max-width:720px){ .svc-d{grid-template-columns:1fr!important} }
-.u-cursor-hide, .u-cursor-hide *{cursor:none!important}
+.u-skip{position:absolute;left:8px;top:-60px;z-index:100;background:var(--grad);color:#fff;font-family:var(--dsp);font-weight:600;font-size:14px;padding:10px 18px;transition:top .2s}
+.u-skip:focus{top:8px}
 .hv-tx:hover{color:var(--tx)!important}
 .hv-lift1:hover{box-shadow:0 8px 30px rgba(110,139,255,.45);transform:translateY(-1px)}
 .hv-lift2:hover{box-shadow:0 12px 44px rgba(110,139,255,.5);transform:translateY(-2px)}
@@ -154,6 +158,7 @@ html.lenis,html.lenis body{height:auto}
 </head>
 <body>
 <div id="u-root" style="color:var(--tx);font-family:var(--bd);overflow-x:clip">
+<a class="u-skip" href="#servizi">Salta al contenuto</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <linearGradient id="ulg" gradientUnits="userSpaceOnUse" x1="0" y1="32" x2="64" y2="32"><stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#7C3AED"/></linearGradient>
   <!-- glifo compatto del brand: cristallo con breccia e frammento (vedi brand.html) -->
@@ -374,19 +379,7 @@ html.lenis,html.lenis body{height:auto}
               <p style="font-size:16px;line-height:1.6;margin:0;color:var(--mut);max-width:40em">Partiamo dai tuoi processi reali, non da slide. In due o tre settimane hai una mappa di dove si perde tempo, quali attività l'AI può togliere dal tavolo e una roadmap con priorità, impatto stimato e rischi. Se in un punto l'AI non serve, te lo diciamo.</p>
             </div>
             <div style="display:flex;flex-direction:column;gap:12px">
-              <div class="sdg" style="border:1px solid var(--line);background:rgba(255,255,255,.88);padding:14px 16px 6px;margin-bottom:8px">
-                <span style="display:block;font-family:var(--mo);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px">// mappa dei processi → roadmap</span>
-                <svg viewBox="0 0 340 190" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <defs><linearGradient id="d0gm" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4C6FFF" stop-opacity="0"/><stop offset="1" stop-color="#4C6FFF" stop-opacity=".16"/></linearGradient></defs>
-                  <g style="stroke:rgba(14,27,77,.15)" stroke-width="1.2"><path d="M40 128L96 58M96 58L150 132M150 132L206 84M206 84L262 138M262 138L306 62M96 58L206 84M150 132L262 138"/></g>
-                  <g style="fill:#CBD4EE"><circle cx="40" cy="128" r="4"/><circle cx="150" cy="132" r="4"/><circle cx="262" cy="138" r="4"/></g>
-                  <g class="d-scan"><rect x="8" y="16" width="12" height="126" fill="url(#d0gm)"/><rect x="20" y="16" width="1.5" height="126" style="fill:rgba(76,111,255,.55)"/></g>
-                  <g class="d-pop" style="animation-delay:.3s"><circle cx="96" cy="58" r="7" style="stroke:#4C6FFF" stroke-width="2"/><circle cx="96" cy="58" r="3" style="fill:#4C6FFF"/><text x="110" y="50" font-size="10" style="fill:#3F4E85">P1 · ordini</text></g>
-                  <g class="d-pop" style="animation-delay:.65s"><circle cx="206" cy="84" r="7" style="stroke:#7C3AED" stroke-width="2"/><circle cx="206" cy="84" r="3" style="fill:#7C3AED"/><text x="220" y="78" font-size="10" style="fill:#3F4E85">P2 · fatture</text></g>
-                  <g class="d-pop" style="animation-delay:1s"><circle cx="306" cy="62" r="7" style="stroke:#4C6FFF" stroke-width="2"/><circle cx="306" cy="62" r="3" style="fill:#4C6FFF"/><text x="246" y="46" font-size="10" style="fill:#3F4E85">P3 · report</text></g>
-                  <g class="d-pop" style="animation-delay:1.35s"><path class="d-flow" d="M20 168H296" style="stroke:#4C6FFF" stroke-width="1.6"/><path d="M306 168l-9-4.5v9z" style="fill:#4C6FFF"/><text x="20" y="158" font-size="9" style="fill:#7A85B3">ROADMAP · PRIORITÀ · ROI</text></g>
-                </svg>
-              </div>
+              <div class="sdg" data-clone style="margin-bottom:8px"></div>
               <span style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:2px">Cosa ricevi</span>
               <div style="display:flex;align-items:flex-start;gap:11px"><span style="flex:none;margin-top:6px;width:8px;height:8px;background:var(--grad);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span><span style="font-size:15px;line-height:1.4;color:var(--tx)">Mappa dei processi sul campo</span></div>
               <div style="display:flex;align-items:flex-start;gap:11px"><span style="flex:none;margin-top:6px;width:8px;height:8px;background:var(--grad);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span><span style="font-size:15px;line-height:1.4;color:var(--tx)">Casi d'uso prioritizzati</span></div>
@@ -400,20 +393,7 @@ html.lenis,html.lenis body{height:auto}
               <p style="font-size:16px;line-height:1.6;margin:0;color:var(--mut);max-width:40em">Agenti, sistemi RAG, modelli custom e integrazioni con i software che già usi. Lavoriamo a cicli brevi con demo continue, così vedi il sistema crescere passo dopo passo. Il codice è vivo: documentato, testato e in continua evoluzione, senza scatole nere.</p>
             </div>
             <div style="display:flex;flex-direction:column;gap:12px">
-              <div class="sdg" style="border:1px solid var(--line);background:rgba(255,255,255,.88);padding:14px 16px 6px;margin-bottom:8px">
-                <span style="display:block;font-family:var(--mo);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px">// dai tuoi documenti alla risposta</span>
-                <svg viewBox="0 0 340 190" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path class="d-flow" d="M74 78H124" style="stroke:#4C6FFF" stroke-width="1.5"/>
-                  <path class="d-flow" d="M172 78H204" style="stroke:#4C6FFF" stroke-width="1.5"/>
-                  <path class="d-flow" d="M252 78H274" style="stroke:#7C3AED" stroke-width="1.5"/>
-                  <g class="d-pop" style="animation-delay:.3s"><rect x="22" y="66" width="34" height="44" style="stroke:#3F4E85;fill:#fff" stroke-width="1.5"/><rect x="28" y="60" width="34" height="44" style="stroke:#3F4E85;fill:#fff" stroke-width="1.5"/><rect x="34" y="54" width="34" height="44" style="stroke:#4C6FFF;fill:#fff" stroke-width="1.5"/><path d="M40 66h22M40 74h22M40 82h14" style="stroke:#CBD4EE" stroke-width="1.5"/><text x="22" y="130" font-size="9" style="fill:#7A85B3">I TUOI DATI</text></g>
-                  <g class="d-pop" style="animation-delay:.55s"><rect x="126" y="58" width="44" height="40" style="stroke:#3F4E85" stroke-width="1.5"/><path d="M148 58v40M126 78h44" style="stroke:#CBD4EE" stroke-width="1.2"/><text x="126" y="120" font-size="9" style="fill:#7A85B3">INDICE</text></g>
-                  <g class="d-pop" style="animation-delay:.8s"><circle class="d-pulse" cx="228" cy="78" r="20" style="stroke:#7C3AED" stroke-width="2"/><circle cx="228" cy="78" r="8" style="fill:rgba(124,58,237,.16);stroke:#7C3AED" stroke-width="1.5"/><text x="210" y="120" font-size="9" style="fill:#7A85B3">AGENTE</text></g>
-                  <g class="d-pop" style="animation-delay:1.05s"><rect x="276" y="60" width="48" height="32" style="stroke:#4C6FFF;fill:rgba(76,111,255,.07)" stroke-width="1.5"/><path d="M286 92v9l9-9" style="stroke:#4C6FFF;fill:none" stroke-width="1.5"/><path d="M286 71h28M286 80h18" style="stroke:#4C6FFF" stroke-width="1.5"/><text x="270" y="120" font-size="9" style="fill:#7A85B3">RISPOSTA</text></g>
-                  <circle class="d-trav" r="3.5" style="fill:#4C6FFF;offset-path:path('M74 78 H322');offset-rotate:0deg"/>
-                  <g class="d-pop" style="animation-delay:1.3s"><text x="22" y="170" font-size="9" style="fill:#7A85B3">CICLI BREVI · DEMO CONTINUE · CODICE VIVO</text></g>
-                </svg>
-              </div>
+              <div class="sdg" data-clone style="margin-bottom:8px"></div>
               <span style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:2px">Cosa ricevi</span>
               <div style="display:flex;align-items:flex-start;gap:11px"><span style="flex:none;margin-top:6px;width:8px;height:8px;background:var(--grad);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span><span style="font-size:15px;line-height:1.4;color:var(--tx)">Agenti e RAG sui tuoi documenti</span></div>
               <div style="display:flex;align-items:flex-start;gap:11px"><span style="flex:none;margin-top:6px;width:8px;height:8px;background:var(--grad);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span><span style="font-size:15px;line-height:1.4;color:var(--tx)">Integrazioni con i tuoi sistemi</span></div>
@@ -427,21 +407,7 @@ html.lenis,html.lenis body{height:auto}
               <p style="font-size:16px;line-height:1.6;margin:0;color:var(--mut);max-width:40em">Prendiamo i flussi manuali — documenti che rimbalzano tra le mail, dati ricopiati a mano, controlli di back-office — e li rendiamo automatici da un capo all'altro, con supervisione umana dove i numeri contano. Il tuo team torna a fare il lavoro che conta davvero.</p>
             </div>
             <div style="display:flex;flex-direction:column;gap:12px">
-              <div class="sdg" style="border:1px solid var(--line);background:rgba(255,255,255,.88);padding:14px 16px 6px;margin-bottom:8px">
-                <span style="display:block;font-family:var(--mo);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px">// il flusso, da un capo all'altro</span>
-                <svg viewBox="0 0 340 190" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path class="d-flow" d="M80 88H104" style="stroke:#4C6FFF" stroke-width="1.5"/>
-                  <path class="d-flow" d="M166 88H190" style="stroke:#4C6FFF" stroke-width="1.5"/>
-                  <path class="d-flow" d="M252 88H276" style="stroke:#4C6FFF" stroke-width="1.5"/>
-                  <g class="d-pop" style="animation-delay:.3s"><rect x="22" y="70" width="58" height="36" style="stroke:#3F4E85" stroke-width="1.5"/><text x="36" y="92" font-size="9" style="fill:#3F4E85">EMAIL</text></g>
-                  <g class="d-pop" style="animation-delay:.5s"><rect x="106" y="70" width="58" height="36" style="stroke:#3F4E85" stroke-width="1.5"/><text x="126" y="92" font-size="9" style="fill:#3F4E85">OCR</text></g>
-                  <g class="d-pop" style="animation-delay:.7s"><rect x="192" y="70" width="58" height="36" style="stroke:#3F4E85" stroke-width="1.5"/><text x="201" y="92" font-size="9" style="fill:#3F4E85">DATI OK</text></g>
-                  <g class="d-pop" style="animation-delay:.9s"><rect x="278" y="70" width="46" height="36" style="stroke:#4C6FFF;fill:rgba(76,111,255,.08)" stroke-width="1.5"/><path d="M292 88l6 6 11-13" style="stroke:#4C6FFF;fill:none" stroke-width="2"/></g>
-                  <g class="d-pop" style="animation-delay:1.1s"><rect x="214" y="20" width="14" height="14" transform="rotate(45 221 27)" style="stroke:#7C3AED" stroke-width="1.5"/><path d="M221 40V68" style="stroke:#7C3AED" stroke-width="1.2" stroke-dasharray="3 4"/><text x="238" y="31" font-size="9" style="fill:#7A85B3">CONTROLLO UMANO</text></g>
-                  <rect class="d-trav" x="-5" y="-7" width="10" height="14" style="fill:#fff;stroke:#4C6FFF;offset-path:path('M80 88 H278');offset-rotate:0deg" stroke-width="1.5"/>
-                  <g class="d-pop" style="animation-delay:1.3s"><text x="22" y="166" font-size="9" style="fill:#7A85B3">DA UN CAPO ALL'ALTRO · 24/7</text></g>
-                </svg>
-              </div>
+              <div class="sdg" data-clone style="margin-bottom:8px"></div>
               <span style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:2px">Cosa ricevi</span>
               <div style="display:flex;align-items:flex-start;gap:11px"><span style="flex:none;margin-top:6px;width:8px;height:8px;background:var(--grad);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span><span style="font-size:15px;line-height:1.4;color:var(--tx)">Documenti e OCR automatici</span></div>
               <div style="display:flex;align-items:flex-start;gap:11px"><span style="flex:none;margin-top:6px;width:8px;height:8px;background:var(--grad);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span><span style="font-size:15px;line-height:1.4;color:var(--tx)">Workflow end-to-end</span></div>
@@ -455,21 +421,7 @@ html.lenis,html.lenis body{height:auto}
               <p style="font-size:16px;line-height:1.6;margin:0;color:var(--mut);max-width:40em">Soluzioni costruite sul linguaggio e sulle regole del tuo settore — credito, legale, sanità, logistica. Non template generici riverniciati, ma prodotti che capiscono i tuoi documenti, i tuoi vincoli e i tuoi processi, pronti per andare in produzione.</p>
             </div>
             <div style="display:flex;flex-direction:column;gap:12px">
-              <div class="sdg" style="border:1px solid var(--line);background:rgba(255,255,255,.88);padding:14px 16px 6px;margin-bottom:8px">
-                <span style="display:block;font-family:var(--mo);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px">// un core, la lingua del tuo settore</span>
-                <svg viewBox="0 0 340 190" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path class="d-flow" d="M96 46L152 82" style="stroke:#4C6FFF" stroke-width="1.3"/>
-                  <path class="d-flow" d="M244 46L188 82" style="stroke:#7C3AED" stroke-width="1.3"/>
-                  <path class="d-flow" d="M96 148L152 112" style="stroke:#7C3AED" stroke-width="1.3"/>
-                  <path class="d-flow" d="M244 148L188 112" style="stroke:#4C6FFF" stroke-width="1.3"/>
-                  <g class="d-pop" style="animation-delay:.3s"><rect class="d-pulse" x="149" y="76" width="42" height="42" transform="rotate(45 170 97)" style="stroke:#7C3AED" stroke-width="2"/><rect x="159" y="86" width="22" height="22" transform="rotate(45 170 97)" style="fill:rgba(124,58,237,.14);stroke:#4C6FFF" stroke-width="1.5"/></g>
-                  <g class="d-pop" style="animation-delay:.5s"><rect x="26" y="30" width="74" height="26" style="stroke:#3F4E85" stroke-width="1.5"/><text x="42" y="47" font-size="9" style="fill:#3F4E85">CREDITO</text></g>
-                  <g class="d-pop" style="animation-delay:.65s"><rect x="240" y="30" width="70" height="26" style="stroke:#3F4E85" stroke-width="1.5"/><text x="258" y="47" font-size="9" style="fill:#3F4E85">LEGALE</text></g>
-                  <g class="d-pop" style="animation-delay:.8s"><rect x="26" y="138" width="74" height="26" style="stroke:#3F4E85" stroke-width="1.5"/><text x="44" y="155" font-size="9" style="fill:#3F4E85">SANITÀ</text></g>
-                  <g class="d-pop" style="animation-delay:.95s"><rect x="236" y="138" width="82" height="26" style="stroke:#3F4E85" stroke-width="1.5"/><text x="250" y="155" font-size="9" style="fill:#3F4E85">LOGISTICA</text></g>
-                  <g class="d-pop" style="animation-delay:1.2s"><text x="112" y="186" font-size="9" style="fill:#7A85B3">UN CORE · TANTE LINGUE</text></g>
-                </svg>
-              </div>
+              <div class="sdg" data-clone style="margin-bottom:8px"></div>
               <span style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:2px">Cosa ricevi</span>
               <div style="display:flex;align-items:flex-start;gap:11px"><span style="flex:none;margin-top:6px;width:8px;height:8px;background:var(--grad);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span><span style="font-size:15px;line-height:1.4;color:var(--tx)">Soluzione settore-specifica</span></div>
               <div style="display:flex;align-items:flex-start;gap:11px"><span style="flex:none;margin-top:6px;width:8px;height:8px;background:var(--grad);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span><span style="font-size:15px;line-height:1.4;color:var(--tx)">Conforme alle tue regole</span></div>
@@ -500,7 +452,7 @@ html.lenis,html.lenis body{height:auto}
                 <g class="d-pop" style="animation-delay:.6s"><circle cx="96" cy="58" r="7" style="stroke:#4C6FFF" stroke-width="2"/><circle cx="96" cy="58" r="3" style="fill:#4C6FFF"/><text x="110" y="50" font-size="10" style="fill:#3F4E85">P1 · ordini</text></g>
                 <g class="d-pop" style="animation-delay:.95s"><circle cx="206" cy="84" r="7" style="stroke:#7C3AED" stroke-width="2"/><circle cx="206" cy="84" r="3" style="fill:#7C3AED"/><text x="220" y="78" font-size="10" style="fill:#3F4E85">P2 · fatture</text></g>
                 <g class="d-pop" style="animation-delay:1.3s"><circle cx="306" cy="62" r="7" style="stroke:#4C6FFF" stroke-width="2"/><circle cx="306" cy="62" r="3" style="fill:#4C6FFF"/><text x="246" y="46" font-size="10" style="fill:#3F4E85">P3 · report</text></g>
-                <g class="d-pop" style="animation-delay:1.65s"><path class="d-flow" d="M20 168H296" style="stroke:#4C6FFF" stroke-width="1.6"/><path d="M306 168l-9-4.5v9z" style="fill:#4C6FFF"/><text x="20" y="158" font-size="9" style="fill:#7A85B3">ROADMAP · PRIORITÀ · ROI</text></g>
+                <g class="d-pop" style="animation-delay:1.65s"><path class="d-flow" d="M20 168H296" style="stroke:#4C6FFF" stroke-width="1.6"/><path d="M306 168l-9-4.5v9z" style="fill:#4C6FFF"/><text x="20" y="158" font-size="9" style="fill:#5C689C">ROADMAP · PRIORITÀ · ROI</text></g>
               </svg>
             </div>
             <div class="ss-a" style="opacity:0;border:1px solid var(--line);background:var(--surface);padding:24px 26px;display:flex;flex-direction:column;gap:14px">
@@ -528,12 +480,12 @@ html.lenis,html.lenis body{height:auto}
                 <path class="d-flow" d="M74 78H124" style="stroke:#4C6FFF" stroke-width="1.5"/>
                 <path class="d-flow" d="M172 78H204" style="stroke:#4C6FFF" stroke-width="1.5"/>
                 <path class="d-flow" d="M252 78H274" style="stroke:#7C3AED" stroke-width="1.5"/>
-                <g class="d-pop" style="animation-delay:.6s"><rect x="22" y="66" width="34" height="44" style="stroke:#3F4E85;fill:#fff" stroke-width="1.5"/><rect x="28" y="60" width="34" height="44" style="stroke:#3F4E85;fill:#fff" stroke-width="1.5"/><rect x="34" y="54" width="34" height="44" style="stroke:#4C6FFF;fill:#fff" stroke-width="1.5"/><path d="M40 66h22M40 74h22M40 82h14" style="stroke:#CBD4EE" stroke-width="1.5"/><text x="22" y="130" font-size="9" style="fill:#7A85B3">I TUOI DATI</text></g>
-                <g class="d-pop" style="animation-delay:.85s"><rect x="126" y="58" width="44" height="40" style="stroke:#3F4E85" stroke-width="1.5"/><path d="M148 58v40M126 78h44" style="stroke:#CBD4EE" stroke-width="1.2"/><text x="126" y="120" font-size="9" style="fill:#7A85B3">INDICE</text></g>
-                <g class="d-pop" style="animation-delay:1.1s"><circle class="d-pulse" cx="228" cy="78" r="20" style="stroke:#7C3AED" stroke-width="2"/><circle cx="228" cy="78" r="8" style="fill:rgba(124,58,237,.16);stroke:#7C3AED" stroke-width="1.5"/><text x="210" y="120" font-size="9" style="fill:#7A85B3">AGENTE</text></g>
-                <g class="d-pop" style="animation-delay:1.35s"><rect x="276" y="60" width="48" height="32" style="stroke:#4C6FFF;fill:rgba(76,111,255,.07)" stroke-width="1.5"/><path d="M286 92v9l9-9" style="stroke:#4C6FFF;fill:none" stroke-width="1.5"/><path d="M286 71h28M286 80h18" style="stroke:#4C6FFF" stroke-width="1.5"/><text x="270" y="120" font-size="9" style="fill:#7A85B3">RISPOSTA</text></g>
+                <g class="d-pop" style="animation-delay:.6s"><rect x="22" y="66" width="34" height="44" style="stroke:#3F4E85;fill:#fff" stroke-width="1.5"/><rect x="28" y="60" width="34" height="44" style="stroke:#3F4E85;fill:#fff" stroke-width="1.5"/><rect x="34" y="54" width="34" height="44" style="stroke:#4C6FFF;fill:#fff" stroke-width="1.5"/><path d="M40 66h22M40 74h22M40 82h14" style="stroke:#CBD4EE" stroke-width="1.5"/><text x="22" y="130" font-size="9" style="fill:#5C689C">I TUOI DATI</text></g>
+                <g class="d-pop" style="animation-delay:.85s"><rect x="126" y="58" width="44" height="40" style="stroke:#3F4E85" stroke-width="1.5"/><path d="M148 58v40M126 78h44" style="stroke:#CBD4EE" stroke-width="1.2"/><text x="126" y="120" font-size="9" style="fill:#5C689C">INDICE</text></g>
+                <g class="d-pop" style="animation-delay:1.1s"><circle class="d-pulse" cx="228" cy="78" r="20" style="stroke:#7C3AED" stroke-width="2"/><circle cx="228" cy="78" r="8" style="fill:rgba(124,58,237,.16);stroke:#7C3AED" stroke-width="1.5"/><text x="210" y="120" font-size="9" style="fill:#5C689C">AGENTE</text></g>
+                <g class="d-pop" style="animation-delay:1.35s"><rect x="276" y="60" width="48" height="32" style="stroke:#4C6FFF;fill:rgba(76,111,255,.07)" stroke-width="1.5"/><path d="M286 92v9l9-9" style="stroke:#4C6FFF;fill:none" stroke-width="1.5"/><path d="M286 71h28M286 80h18" style="stroke:#4C6FFF" stroke-width="1.5"/><text x="270" y="120" font-size="9" style="fill:#5C689C">RISPOSTA</text></g>
                 <circle class="d-trav" r="3.5" style="fill:#4C6FFF;offset-path:path('M74 78 H322');offset-rotate:0deg"/>
-                <g class="d-pop" style="animation-delay:1.6s"><text x="22" y="170" font-size="9" style="fill:#7A85B3">CICLI BREVI · DEMO CONTINUE · CODICE VIVO</text></g>
+                <g class="d-pop" style="animation-delay:1.6s"><text x="22" y="170" font-size="9" style="fill:#5C689C">CICLI BREVI · DEMO CONTINUE · CODICE VIVO</text></g>
               </svg>
             </div>
             <div class="ss-a" style="opacity:0;border:1px solid var(--line);background:var(--surface);padding:24px 26px;display:flex;flex-direction:column;gap:14px">
@@ -565,9 +517,9 @@ html.lenis,html.lenis body{height:auto}
                 <g class="d-pop" style="animation-delay:.8s"><rect x="106" y="70" width="58" height="36" style="stroke:#3F4E85" stroke-width="1.5"/><text x="126" y="92" font-size="9" style="fill:#3F4E85">OCR</text></g>
                 <g class="d-pop" style="animation-delay:1s"><rect x="192" y="70" width="58" height="36" style="stroke:#3F4E85" stroke-width="1.5"/><text x="201" y="92" font-size="9" style="fill:#3F4E85">DATI OK</text></g>
                 <g class="d-pop" style="animation-delay:1.2s"><rect x="278" y="70" width="46" height="36" style="stroke:#4C6FFF;fill:rgba(76,111,255,.08)" stroke-width="1.5"/><path d="M292 88l6 6 11-13" style="stroke:#4C6FFF;fill:none" stroke-width="2"/></g>
-                <g class="d-pop" style="animation-delay:1.4s"><rect x="214" y="20" width="14" height="14" transform="rotate(45 221 27)" style="stroke:#7C3AED" stroke-width="1.5"/><path d="M221 40V68" style="stroke:#7C3AED" stroke-width="1.2" stroke-dasharray="3 4"/><text x="238" y="31" font-size="9" style="fill:#7A85B3">CONTROLLO UMANO</text></g>
+                <g class="d-pop" style="animation-delay:1.4s"><rect x="214" y="20" width="14" height="14" transform="rotate(45 221 27)" style="stroke:#7C3AED" stroke-width="1.5"/><path d="M221 40V68" style="stroke:#7C3AED" stroke-width="1.2" stroke-dasharray="3 4"/><text x="238" y="31" font-size="9" style="fill:#5C689C">CONTROLLO UMANO</text></g>
                 <rect class="d-trav" x="-5" y="-7" width="10" height="14" style="fill:#fff;stroke:#4C6FFF;offset-path:path('M80 88 H278');offset-rotate:0deg" stroke-width="1.5"/>
-                <g class="d-pop" style="animation-delay:1.6s"><text x="22" y="166" font-size="9" style="fill:#7A85B3">DA UN CAPO ALL'ALTRO · 24/7</text></g>
+                <g class="d-pop" style="animation-delay:1.6s"><text x="22" y="166" font-size="9" style="fill:#5C689C">DA UN CAPO ALL'ALTRO · 24/7</text></g>
               </svg>
             </div>
             <div class="ss-a" style="opacity:0;border:1px solid var(--line);background:var(--surface);padding:24px 26px;display:flex;flex-direction:column;gap:14px">
@@ -601,7 +553,7 @@ html.lenis,html.lenis body{height:auto}
                 <g class="d-pop" style="animation-delay:.85s"><rect x="240" y="30" width="70" height="26" style="stroke:#3F4E85" stroke-width="1.5"/><text x="258" y="47" font-size="9" style="fill:#3F4E85">LEGALE</text></g>
                 <g class="d-pop" style="animation-delay:1s"><rect x="26" y="138" width="74" height="26" style="stroke:#3F4E85" stroke-width="1.5"/><text x="44" y="155" font-size="9" style="fill:#3F4E85">SANITÀ</text></g>
                 <g class="d-pop" style="animation-delay:1.15s"><rect x="236" y="138" width="82" height="26" style="stroke:#3F4E85" stroke-width="1.5"/><text x="250" y="155" font-size="9" style="fill:#3F4E85">LOGISTICA</text></g>
-                <g class="d-pop" style="animation-delay:1.4s"><text x="112" y="186" font-size="9" style="fill:#7A85B3">UN CORE · TANTE LINGUE</text></g>
+                <g class="d-pop" style="animation-delay:1.4s"><text x="112" y="186" font-size="9" style="fill:#5C689C">UN CORE · TANTE LINGUE</text></g>
               </svg>
             </div>
             <div class="ss-a" style="opacity:0;border:1px solid var(--line);background:var(--surface);padding:24px 26px;display:flex;flex-direction:column;gap:14px">
@@ -862,7 +814,7 @@ html.lenis,html.lenis body{height:auto}
         <p style="margin-top:16px;max-width:26em;font-size:14.5px;line-height:1.6;color:var(--mut)">Tech house e AI consulting. Progettiamo e costruiamo soluzioni che entrano in produzione.</p>
       </div>
       <div>
-        <h4 style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0 0 16px">Servizi</h4>
+        <h3 style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0 0 16px">Servizi</h3>
         <div style="display:grid;gap:11px;font-size:14.5px">
           <a href="#servizi" style="color:var(--mut)" class="hv-tx">AI Consulting</a>
           <a href="#servizi" style="color:var(--mut)" class="hv-tx">AI Development</a>
@@ -871,7 +823,7 @@ html.lenis,html.lenis body{height:auto}
         </div>
       </div>
       <div>
-        <h4 style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0 0 16px">Settori</h4>
+        <h3 style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0 0 16px">Settori</h3>
         <div style="display:grid;gap:11px;font-size:14.5px">
           <a href="#verticali" style="color:var(--mut)" class="hv-tx">Credito e finance</a>
           <a href="#verticali" style="color:var(--mut)" class="hv-tx">Legale e studi professionali</a>
@@ -881,7 +833,7 @@ html.lenis,html.lenis body{height:auto}
         <p style="margin:16px 0 0;font-size:13px;line-height:1.55;color:var(--dim)">Lavoriamo con studi professionali, istituti di credito, sanità e logistica per portare automazioni AI in produzione.</p>
       </div>
       <div>
-        <h4 style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0 0 16px">Contatti</h4>
+        <h3 style="font-family:var(--mo);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0 0 16px">Contatti</h3>
         <div style="display:grid;gap:11px;font-size:14.5px">
           <a href="mailto:info@unitizy.com" style="color:var(--cy)">info@unitizy.com</a>
           <a href="#" style="color:var(--mut)" class="hv-tx">LinkedIn</a>
@@ -932,8 +884,12 @@ class UnitizySite {
     this._onScroll();
     this.initSmoothScroll();
     this.waitThree(() => {
-      try { this.buildHero(this.q('u-hero3d')); } catch (e) { console.warn('hero3d', e); }
-      try { this.buildHero(this.q('u-cta3d'), true); } catch (e) { console.warn('cta3d', e); }
+      // costruzione scene 3D in idle: non rubare il main thread al primo paint
+      const go = () => {
+        try { this.buildHero(this.q('u-hero3d')); } catch (e) { console.warn('hero3d', e); }
+        try { this.buildHero(this.q('u-cta3d'), true); } catch (e) { console.warn('cta3d', e); }
+      };
+      (window.requestIdleCallback || (f => setTimeout(f, 180)))(go);
     });
   }
 
@@ -1029,7 +985,8 @@ class UnitizySite {
   initCrystalText(lines) {
     // Hero: le parole si formano dalle particelle esplose dal cluster di cristalli.
     // Il testo DOM resta la verità (SEO/a11y): le particelle sono scenografia, poi crossfade.
-    if (this.RM || matchMedia('(max-width:820px)').matches || !lines.length || scrollY > innerHeight * 0.4) return false;
+    const conn = navigator.connection || {};
+    if (this.RM || matchMedia('(max-width:820px)').matches || !lines.length || scrollY > innerHeight * 0.4 || conn.saveData || /(^|-)2g/.test(conn.effectiveType || '')) return false;
     const reveal = () => lines.forEach(s => { s.style.transition = 'opacity .55s ease'; s.style.opacity = '1'; });
     const start = () => { try {
       if (document.hidden) { // tab in background: rimanda l'esplosione a quando l'utente guarda
@@ -1060,13 +1017,16 @@ class UnitizySite {
         spans.push({ el: s, r, grad: ((cs.webkitBackgroundClip || '') + (cs.backgroundClip || '')).includes('text') });
       });
       if (!spans.length) { reveal(); return; }
-      const img = octx.getImageData(0, 0, vw, vh).data;
+      // campiona solo il rettangolo che contiene il testo, non tutta la viewport
+      const bx = Math.max(0, Math.min(...spans.map(s => s.r.left)) | 0), by = Math.max(0, Math.min(...spans.map(s => s.r.top)) | 0);
+      const bw = Math.min(vw, Math.max(...spans.map(s => s.r.right)) + 2 | 0) - bx, bh = Math.min(vh, Math.max(...spans.map(s => s.r.bottom)) + 2 | 0) - by;
+      const img = octx.getImageData(bx, by, bw, bh).data;
       const pts = [], STEP = 5;
       spans.forEach(sp => {
-        const x0 = Math.max(0, sp.r.left | 0), x1 = Math.min(vw, (sp.r.right + 2) | 0);
-        const y0 = Math.max(0, sp.r.top | 0), y1 = Math.min(vh, (sp.r.bottom + 2) | 0);
+        const x0 = Math.max(bx, sp.r.left | 0), x1 = Math.min(bx + bw, (sp.r.right + 2) | 0);
+        const y0 = Math.max(by, sp.r.top | 0), y1 = Math.min(by + bh, (sp.r.bottom + 2) | 0);
         for (let y = y0; y < y1; y += STEP) for (let x = x0; x < x1; x += STEP) {
-          if (img[(y * vw + x) * 4 + 3] > 100) pts.push({ tx: x, ty: y, c: sp.grad ? lerpHex('#4C6FFF', '#7C3AED', (x - sp.r.left) / (sp.r.width || 1)) : '#0E1B4D' });
+          if (img[((y - by) * bw + (x - bx)) * 4 + 3] > 100) pts.push({ tx: x, ty: y, c: sp.grad ? lerpHex('#4C6FFF', '#7C3AED', (x - sp.r.left) / (sp.r.width || 1)) : '#0E1B4D' });
         }
       });
       if (!pts.length) { reveal(); return; }
@@ -1082,7 +1042,7 @@ class UnitizySite {
       cv.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:40;pointer-events:none';
       document.body.appendChild(cv);
       const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
-      const T = 2400, t0 = performance.now(), EX = 0.16;
+      const T = 2000, t0 = performance.now(), EX = 0.16;
       let revealed = false;
       const eo = t => 1 - Math.pow(1 - t, 3), eio = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
       const tick = now => {
@@ -1100,7 +1060,7 @@ class UnitizySite {
           }
           ctx.globalAlpha = al; ctx.fillStyle = p.c; ctx.fillRect(x, y, p.s, p.s);
         }
-        if (t > 0.78 && !revealed) {
+        if (t > 0.55 && !revealed) { // reveal anticipato: il titolo è l'elemento LCP, non farlo aspettare
           revealed = true; reveal();
           cv.style.transition = 'opacity .6s ease'; cv.style.opacity = '0';
         }
@@ -1450,6 +1410,17 @@ class UnitizySite {
     // click-to-expand deep-dive panel
     const panel = this.q('u-svc-detail');
     const blocks = panel ? [...panel.querySelectorAll('.svc-d')] : [];
+    // i diagrammi vivono una volta sola, nelle scene: l'accordion li clona a runtime (delay accorciati)
+    blocks.forEach(b => {
+      const slot = b.querySelector('.sdg[data-clone]');
+      const src = document.querySelector('.svc-scene[data-s="' + b.dataset.d + '"] .sdg');
+      if (slot && src) {
+        const c = src.cloneNode(true);
+        c.style.margin = '0 0 8px'; c.style.padding = '14px 16px 6px';
+        c.querySelectorAll('[style*="animation-delay"]').forEach(el => { const d = parseFloat(el.style.animationDelay); if (d) el.style.animationDelay = Math.max(0.15, d - 0.3).toFixed(2) + 's'; });
+        slot.replaceWith(c);
+      }
+    });
     this._svcOpen = -1;
     const closePanel = () => {
       this._svcOpen = -1;
@@ -1599,8 +1570,8 @@ class UnitizySite {
     const base = 'position:fixed;left:0;top:0;z-index:9999;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%);opacity:0';
     dot.style.cssText = base + ';width:6px;height:6px;background:var(--cy)';
     ring.style.cssText = base + ';width:34px;height:34px;border:1.5px solid rgba(110,139,255,.6);transition:width .22s ease,height .22s ease,background .22s ease,border-color .22s ease,opacity .25s ease';
-    document.body.appendChild(ring); document.body.appendChild(dot);
-    document.documentElement.classList.add('u-cursor-hide');
+    // il cursore di sistema resta visibile (a11y): l'anello è solo un accento che lo segue
+    document.body.appendChild(ring);
     let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, shown = false;
     const move = e => {
       mx = e.clientX; my = e.clientY;
@@ -1855,10 +1826,13 @@ class UnitizySite {
     oc.fillStyle = '#000';
     oc.fill(new Path2D('M38 8 L58 20 V44 L38 56 L18 44 V36 L24 32 L18 28 V20 Z'));
     oc.fill(new Path2D('M8 30l3.4-2.4 2.6 2.4-3 2.2z'));
-    const img = oc.getImageData(0, 0, W, H).data;
-    const pts = [];
+    // campiona solo il box del glifo, non l'intera sezione
     const x0 = Math.max(0, gx - 4 | 0), x1 = Math.min(W, (gx + gw + 4) | 0), y0 = Math.max(0, gy - 4 | 0), y1 = Math.min(H, (gy + gr.height + 4) | 0);
-    for (let y = y0; y < y1; y += 3) for (let x = x0; x < x1; x += 3) if (img[(y * W + x) * 4 + 3] > 100) pts.push({ tx: x, ty: y });
+    const bw = x1 - x0, bh = y1 - y0;
+    if (bw <= 0 || bh <= 0) { glyph.style.opacity = '1'; return; }
+    const img = oc.getImageData(x0, y0, bw, bh).data;
+    const pts = [];
+    for (let y = y0; y < y1; y += 3) for (let x = x0; x < x1; x += 3) if (img[((y - y0) * bw + (x - x0)) * 4 + 3] > 100) pts.push({ tx: x, ty: y });
     if (!pts.length) { glyph.style.opacity = '1'; return; }
     while (pts.length > 1300) pts.splice((Math.random() * pts.length) | 0, 1);
     const lr = (a, b, t) => Math.round(a + (b - a) * t);
@@ -1934,8 +1908,6 @@ class UnitizySite {
     this._thread = { svg, path: svg.querySelector('#u-thread-path'), glow: svg.querySelector('#u-thread-glow'), packet: svg.querySelector('#u-thread-packet'), trail: svg.querySelector('#u-thread-trail') };
     this._thSeeds = [1.3, 4.7, 8.2];
     this._packetT = 0.5; this._vel = 0; this._lastY = scrollY; this._lastTs = performance.now(); this._thH = innerHeight;
-    this.inertiaEls = [...document.querySelectorAll('#u-root h1, #u-root h2')];
-    this.inertiaEls.forEach(el => { el.style.willChange = 'transform'; el.style.transformOrigin = '0% 50%'; });
     const loop = (ts) => {
       const dt = Math.min(0.05, (ts - this._lastTs) / 1000); this._lastTs = ts;
       try { this.updateThread(dt); } catch (e) {}
@@ -1984,11 +1956,7 @@ class UnitizySite {
       n.el.setAttribute('fill', lit ? 'url(#u-thread-g)' : 'var(--bg)');
       n.el.style.filter = lit ? 'drop-shadow(0 0 6px var(--cy))' : 'none';
     });
-    // inertia — headings skew & stretch with scroll velocity, decays to rest
-    const sk = this.clamp(this._vel * 0.05, -4, 4);
-    const st = 1 + this.clamp(Math.abs(this._vel) * 0.0035, 0, 0.08);
-    const tf = (Math.abs(sk) < 0.02 && st < 1.001) ? '' : `skewY(${sk.toFixed(2)}deg) scaleY(${st.toFixed(3)})`;
-    for (const el of this.inertiaEls) el.style.transform = tf;
+    // (l'effetto skew sui titoli è stato rimosso: moto senza significato — regola "un protagonista")
   }
   initScan() {
     this.scanEls = [...document.querySelectorAll('.u-scan')];
