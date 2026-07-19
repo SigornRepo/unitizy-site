@@ -16,7 +16,7 @@ Statico, zero cookie, zero tracker, zero build step: quello che vedi nel repo è
 | `assets/brand/marks.svg` | **Fonte canonica del marchio** (master, glifo compatto, motivo frammenti). Le pagine interne lo referenziano via `<use href>`; `index.html` tiene una copia inline per evitare una richiesta in più sul percorso critico (unica duplicazione ammessa, aggiornarle insieme). |
 | `assets/social/` | PNG d'esempio esportati dai template. |
 | `assets/prima-v2.mp4` | Video della sezione "Il prima". |
-| `vendor/` | Three.js, Lenis e font self-hostati (GDPR: nessuna richiesta a server terzi). |
+| `vendor/` | Lenis e font self-hostati (GDPR: nessuna richiesta a server terzi). |
 | `scripts/check.py` | Controlli pre-push (parse HTML, asset referenziati esistenti, stringhe vietate). |
 | `PLACEHOLDERS.md` | **Censimento dei contenuti provvisori** da sostituire con dati veri prima di usarli commercialmente. |
 
@@ -44,5 +44,5 @@ cp scripts/pre-push .git/hooks/pre-push
 ## Debiti noti (scelti, non dimenticati)
 
 1. **Stili per-elemento inline nel markup** (`style="..."` sugli elementi): stile di authoring ereditato dal progetto design. CSS e JS sono stati estratti in file dedicati (19/07/2026); la conversione degli inline a classi è lavoro incrementale, da fare quando si tocca una sezione.
-2. **Three.js completo (618 KB)** per l'hero 3D: caricato `defer`, ma un build custom o un porting a canvas 2D peserebbe ~1/10. Da fare se Lighthouse mobile segna il fiato corto.
+2. ~~Three.js completo (618 KB)~~ — **saldato il 19/07/2026**: la scena del chip è stata riscritta in canvas 2D nativo (`assets/js/hero3d.js`), −618 KB di JavaScript.
 3. **Niente analytics** per scelta privacy: nessuna misura di conversione. Se servirà, valutare opzioni cookieless (es. GoatCounter/Plausible) e aggiornare la privacy policy.

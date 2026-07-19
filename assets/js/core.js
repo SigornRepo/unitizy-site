@@ -33,14 +33,12 @@ export class UnitizySite {
     this.cleanups.push(() => { removeEventListener('scroll', this._onScroll); removeEventListener('resize', this._onScroll); });
     this._onScroll();
     this.initSmoothScroll();
-    this.waitThree(() => {
-      // costruzione scene 3D in idle: non rubare il main thread al primo paint
-      const go = () => {
-        try { this.buildHero(this.q('u-hero3d')); } catch (e) { console.warn('hero3d', e); }
-        try { this.buildHero(this.q('u-cta3d'), true); } catch (e) { console.warn('cta3d', e); }
-      };
-      (window.requestIdleCallback || (f => setTimeout(f, 180)))(go);
-    });
+    // scene del chip (canvas 2D) in idle: non rubare il main thread al primo paint
+    const go = () => {
+      try { this.buildHero(this.q('u-hero3d')); } catch (e) { console.warn('hero2d', e); }
+      try { this.buildHero(this.q('u-cta3d'), true); } catch (e) { console.warn('cta2d', e); }
+    };
+    (window.requestIdleCallback || (f => setTimeout(f, 180)))(go);
   }
   clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
   q(id) { return document.getElementById(id); }
@@ -63,16 +61,5 @@ export class UnitizySite {
     };
     t();
   }
-  waitThree(cb) {
-    let n = 0;
-    const t = () => {
-      if (window.THREE && THREE.WebGLRenderer && THREE.Sprite) cb();
-      else if (n++ < 400) setTimeout(t, 60);
-      else console.warn('[unitizy] three.js non caricato');
-    };
-    t();
-  }
-
-  // Shared 3D crystal + node network + panels. cta=true → calmer, fewer elements, assembled.
   scrollToY(y) { if (this._lenis) this._lenis.scrollTo(y); else scrollTo({ top: y, behavior: 'smooth' }); }
 }
