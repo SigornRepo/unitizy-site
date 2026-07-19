@@ -7,7 +7,9 @@ Statico, zero cookie, zero tracker, zero build step: quello che vedi nel repo è
 
 | File / cartella | Cosa |
 |---|---|
-| `index.html` | Il sito. Tutto (CSS, JS, markup) vive qui, inline — scelta ereditata dal progetto design originale, vedi "Debiti noti". |
+| `index.html` | Il markup del sito (~700 righe). |
+| `assets/css/site.css` | Gli stili del sito (font, keyframes, utility). |
+| `assets/js/site.js` | Il motore: classe `UnitizySite` (hero 3D, particelle, scene, spina, animazioni). |
 | `brand.html` | Manuale d'identità visiva (marchio, colori, motivo dei frammenti, regole d'uso, template social). `noindex`. |
 | `social.html` | Template social parametrici. Export: `social.html?board=1..4` + screenshot alla dimensione esatta. `noindex`. |
 | `privacy.html` | Informativa privacy (GDPR + normativa albanese). |
@@ -39,6 +41,6 @@ cp scripts/pre-push .git/hooks/pre-push
 
 ## Debiti noti (scelti, non dimenticati)
 
-1. **Tutto inline in index.html** (~2.000 righe): ereditato dal progetto design e mantenuto per semplicità di deploy. Se il sito cresce oltre le 4 pagine, estrarre CSS/JS.
+1. **Stili per-elemento inline nel markup** (`style="..."` sugli elementi): stile di authoring ereditato dal progetto design. CSS e JS sono stati estratti in file dedicati (19/07/2026); la conversione degli inline a classi è lavoro incrementale, da fare quando si tocca una sezione.
 2. **Three.js completo (618 KB)** per l'hero 3D: caricato `defer`, ma un build custom o un porting a canvas 2D peserebbe ~1/10. Da fare se Lighthouse mobile segna il fiato corto.
 3. **Niente analytics** per scelta privacy: nessuna misura di conversione. Se servirà, valutare opzioni cookieless (es. GoatCounter/Plausible) e aggiornare la privacy policy.
