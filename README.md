@@ -9,7 +9,7 @@ Statico, zero cookie, zero tracker, zero build step: quello che vedi nel repo è
 |---|---|
 | `index.html` | Il markup del sito (~700 righe). |
 | `assets/css/site.css` | Gli stili del sito (font, keyframes, utility). |
-| `assets/js/site.js` | Il motore: classe `UnitizySite` (hero 3D, particelle, scene, spina, animazioni). |
+| `assets/js/` | Il motore, in **moduli ES nativi** (niente build step): `main.js` (entry, assembla e avvia) → `core.js` (classe, boot, utilità) + `hero3d` (Three.js) + `particles` (spray/cristalli/finale) + `stage` (regia scroll) + `sections` (servizi/metodo/impatto/verticali) + `chrome` (burger/cursore/filmbar/spina). I moduli feature estendono `UnitizySite.prototype`. |
 | `brand.html` | Manuale d'identità visiva (marchio, colori, motivo dei frammenti, regole d'uso, template social). `noindex`. |
 | `social.html` | Template social parametrici. Export: `social.html?board=1..4` + screenshot alla dimensione esatta. `noindex`. |
 | `privacy.html` | Informativa privacy (GDPR + normativa albanese). |
@@ -26,9 +26,11 @@ Statico, zero cookie, zero tracker, zero build step: quello che vedi nel repo è
 python -m http.server 8010   # poi http://localhost:8010
 ```
 
-## Deploy
+## Deploy (con quality gate)
 
-Push su `main` → GitHub Pages ripubblica su https://unitizy.com in ~1 minuto. **Non c'è staging**: installa il hook pre-push per i controlli minimi:
+Push su `main` → GitHub Actions (`.github/workflows/deploy.yml`) esegue **prima** i controlli (`scripts/check.py`: parse HTML, asset e import risolti, stringhe vietate, vincoli) e **solo se passano** pubblica su https://unitizy.com. Un push rotto non arriva in produzione.
+
+In locale, stessa rete di sicurezza pre-push:
 
 ```bash
 cp scripts/pre-push .git/hooks/pre-push
