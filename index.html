@@ -263,7 +263,7 @@ html.lenis,html.lenis body{height:auto}
 
 <!-- IL PRIMA -->
 <section id="u-prima" class="u-book" style="position:relative;padding:clamp(110px,20vh,220px) 0;border-top:1px solid var(--line);overflow:hidden;min-height:82vh;display:flex;align-items:center">
-  <video id="u-prima-bg" autoplay muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+  <video id="u-prima-bg" muted loop playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
     <source src="assets/prima-v2.mp4" type="video/mp4">
   </video>
   <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(5,6,14,.9) 0%,rgba(5,6,14,.6) 38%,rgba(5,6,14,.15) 70%,rgba(5,6,14,.25) 100%)"></div>
@@ -1176,6 +1176,7 @@ class UnitizySite {
       const cin = this._cinema && this._cinema.length;
       el.style.transformOrigin = '50% 60%';
       el.style.opacity = (0.03 + 0.97 * e).toFixed(3);
+      el.style.visibility = e < 0.05 ? 'hidden' : ''; // quasi invisibile = fuori da paint e audit contrasto
       el.style.transform = `perspective(1300px) translateY(${(cin ? 0 : g*90*k).toFixed(1)}px) translateZ(${(-g*330*k + (cin ? 0 : go*150*k)).toFixed(1)}px) rotateX(${(cin ? 0 : g*13*k).toFixed(2)}deg)`;
       el.style.filter = e < 0.99 ? `blur(${((g*9 + go*7)*k).toFixed(1)}px) saturate(${(0.6+0.4*e).toFixed(2)})` : 'none';
       el.style.pointerEvents = e < 0.4 ? 'none' : '';
@@ -1197,7 +1198,7 @@ class UnitizySite {
     if (!canvas || !window.THREE) return;
     const T = THREE;
     const renderer = new T.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true, powerPreference: 'high-performance' });
-    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.8));
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, matchMedia('(max-width:820px)').matches ? 1.5 : 1.8));
     renderer.outputColorSpace = T.SRGBColorSpace;
     renderer.toneMapping = T.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.5;
