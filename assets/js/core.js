@@ -23,6 +23,7 @@ export class UnitizySite {
     this.initServicesScroll();
     this.initThread();
     this.initCtaFinale();
+    this.initStory();
     this.initScan();
     this.initCarousel();
     this.initFilmBar();

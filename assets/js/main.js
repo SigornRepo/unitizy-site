@@ -5,8 +5,9 @@ import particles from './particles.js';
 import stage from './stage.js';
 import sections from './sections.js';
 import chrome from './chrome.js';
+import story from './story.js';
 
-Object.assign(UnitizySite.prototype, hero3d, particles, stage, sections, chrome);
+Object.assign(UnitizySite.prototype, hero3d, particles, stage, sections, chrome, story);
 
 new UnitizySite({
   accentColor: '#4C6FFF',
